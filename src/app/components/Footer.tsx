@@ -20,16 +20,27 @@ const Footer = () => {
         <p>Peter Tran © {new Date().getFullYear()} - All rights reserved</p>
       </aside>
       <nav className="grid-flow-col gap-4 md:place-self-center md:justify-self-end text-xl">
-        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://github.com/aeMyst"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="transition duration-300 hover:text-[#24292e]"
+        >
           <FaGithub className="text-3xl" />
         </a>
-        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://www.linkedin.com/in/peter-tran-portal"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="transition duration-300 hover:text-[#0077B5]"
+        >
           <FaLinkedin className="text-3xl" />
         </a>
         <a
-          href="https://facebook.com"
+          href="https://www.instagram.com/peterthetran"
           target="_blank"
           rel="noopener noreferrer"
+          className="transition duration-300 hover:text-[#E1306C]"
         >
           <FaInstagram className="text-3xl" />
         </a>

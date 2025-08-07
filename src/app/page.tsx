@@ -6,6 +6,7 @@ import AboutSection from "../app/components/sections/About";
 import ProjectsSection from "../app/components/sections/Projects";
 import ExperienceSection from "./components/sections/Experience";
 import Footer from "../app/components/Footer";
+import ThemeToggle from "../app/components/ThemeToggle";
 
 export default function LandingPage() {
   return (
@@ -13,6 +14,7 @@ export default function LandingPage() {
       data-theme="coffee"
       className="flex relative min-h-screen overflow-hidden"
     >
+      <ThemeToggle />
       <Sidebar />
       <div className="ml-48 w-full">
         <HeroSection />

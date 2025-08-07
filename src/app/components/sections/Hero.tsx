@@ -12,7 +12,7 @@ const HeroSection = () => {
       <div className="card w-full max-w-5xl bg-base-300 shadow-[0_15px_60px_rgba(0,0,0,0.8)] p-6 md:flex-row flex-col items-center gap-6">
         {/* Left side: text content */}
         <div className="card-body items-center text-center md:items-start md:text-left flex-1">
-          <h1 className="text-6xl text-primary font-bold">Peter Tran</h1>
+          <h1 className="text-6xl font-bold">Peter Tran</h1>
           <p className="text-md text-white mt-2">
             Computer Science Student | Data Analyst & Software Developer
           </p>

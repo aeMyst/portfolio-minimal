@@ -61,8 +61,8 @@ html {
   position: absolute;
   top: -10px;
   left: 50%;
-  width: 2px;
-  height: 2px;
+  width: 5px;
+  height: 5px;
   background: white;
   border-radius: 50%;
 
@@ -73,7 +73,7 @@ html {
     1200px 150px white,
     1500px 200px white;
 
-  filter: drop-shadow(0 0 8px white) drop-shadow(0 0 8px white);
+  filter: drop-shadow(0 0 1000px white) drop-shadow(0 0 1000px white);
 
   animation: shooting 2s linear infinite;
 }
@@ -82,10 +82,10 @@ html {
   content: "";
   position: absolute;
   width: 100px;
-  height: 2px;
+  height: 5px;
   background: linear-gradient(
     90deg,
-    rgba(255, 255, 255, 0.6),
+    rgba(255, 255, 255, 1.0),
     rgba(255, 255, 255, 0)
   );
   transform: rotate(45deg);

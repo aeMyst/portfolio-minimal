@@ -49,7 +49,7 @@ export default function Sidebar() {
             alt="Profile"
             className="w-28 h-28 rounded-full object-cover shadow-lg border-2 border-primary"
           />
-          <p className="text-lg font-semibold text-white">Peter Tran</p>
+          <p className="text-lg font-semibold">Peter Tran</p>
         </div>
 
         {/* Navigation tools */}

@@ -4,7 +4,7 @@ import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="footer sm:footer-horizontal bg-base-200 text-white items-center p-4">
+    <footer className="footer sm:footer-horizontal bg-base-200 text-white items-center p-4 relative z-20">
       <aside className="grid-flow-col items-center">
         <svg
           width="36"

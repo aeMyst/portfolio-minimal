@@ -5,20 +5,29 @@ import React, { useEffect, useState } from "react";
 const themes = ["coffee", "luxury"];
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState("coffee");
+  const [theme, setTheme] = useState<string | null>(null);
 
   useEffect(() => {
+    if (!theme) return;
     const root = document.querySelector("main[data-theme]");
     if (root) {
       root.setAttribute("data-theme", theme);
     }
   }, [theme]);
 
+  // Set initial theme on mount
+  useEffect(() => {
+    setTheme("coffee");
+  }, []);
+
   const toggleTheme = () => {
+    if (!theme) return;
     const currentIndex = themes.indexOf(theme);
     const nextIndex = (currentIndex + 1) % themes.length;
     setTheme(themes[nextIndex]);
   };
+
+  if (!theme) return null;
 
   return (
     <label className="flex cursor-pointer gap-2 fixed top-4 right-4 z-50 items-center">
@@ -42,9 +51,8 @@ export default function ThemeToggle() {
       <input
         type="checkbox"
         className="toggle"
-        onClick={toggleTheme}
         checked={theme === "luxury"}
-        readOnly
+        onChange={toggleTheme}
       />
 
       {/* Moon Icon */}

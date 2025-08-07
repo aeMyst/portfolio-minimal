@@ -39,3 +39,62 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+@keyframes shooting {
+  0% {
+    transform: translateX(0) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-1000px) translateY(1000px);
+    opacity: 0;
+  }
+}
+
+.shooting-stars {
+  position: relative;
+}
+
+.shooting-stars::before,
+.shooting-stars::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+
+  box-shadow:
+    300px 50px white,
+    600px 100px white,
+    900px 0 white,
+    1200px 150px white,
+    1500px 200px white;
+
+  filter: drop-shadow(0 0 8px white) drop-shadow(0 0 8px white);
+
+  animation: shooting 2s linear infinite;
+}
+
+.shooting-star::before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.6),
+    rgba(255, 255, 255, 0)
+  );
+  transform: rotate(45deg);
+  top: 0;
+  left: -100px;
+}
+
+.shooting-stars::after {
+  animation-delay: 1s;
+}
+
+

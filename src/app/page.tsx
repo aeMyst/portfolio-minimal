@@ -14,6 +14,9 @@ export default function LandingPage() {
       data-theme="coffee"
       className="flex relative min-h-screen overflow-hidden"
     >
+      <div className="absolute inset-0 overflow-hidden z-0">
+        <div className="shooting-stars w-full h-full" />
+      </div>
       <ThemeToggle />
       <Sidebar />
       <div className="ml-48 w-full">

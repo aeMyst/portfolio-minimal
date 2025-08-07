@@ -4,7 +4,7 @@ import Sidebar from "../app/components/Sidebar";
 import HeroSection from "../app/components/sections/Hero";
 import AboutSection from "../app/components/sections/About";
 import ProjectsSection from "../app/components/sections/Projects";
-import ContactSection from "../app/components/sections/Contact";
+import ExperienceSection from "./components/sections/Experience";
 import Footer from "../app/components/Footer";
 
 export default function LandingPage() {
@@ -18,7 +18,7 @@ export default function LandingPage() {
         <HeroSection />
         <AboutSection />
         <ProjectsSection />
-        <ContactSection />
+        <ExperienceSection />
         <Footer />
       </div>
     </main>

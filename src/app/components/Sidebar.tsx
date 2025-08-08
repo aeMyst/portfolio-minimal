@@ -41,7 +41,7 @@ export default function Sidebar() {
         className="fixed top-0 left-0 h-full w-48 bg-base-300 text-white p-6 space-y-6 z-10"
         variants={sideContainer}
         initial="hidden"
-        animate="show" // sidebar is always visible; animate on mount
+        animate="show"
       >
         {/* Profile section */}
         <motion.div
@@ -56,13 +56,12 @@ export default function Sidebar() {
             whileHover={{ scale: 1.03 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
           />
-          <motion.p className="text-lg font-semibold" variants={itemFade}>
+          <motion.p className="text-xl font-semibold" variants={itemFade}>
             Peter Tran
           </motion.p>
         </motion.div>
 
-        {/* Navigation tools (own stagger so links go one after another) */}
-        <motion.div variants={linksContainer} className="space-y-2">
+        <motion.div variants={linksContainer} className="space-y-2 text-xl">
           {sections.map((section) => {
             const sectionId = section.toLowerCase();
             const isActive = activeSection === sectionId;
@@ -74,7 +73,10 @@ export default function Sidebar() {
                 className={`block transition ${
                   isActive ? "text-primary font-bold" : "hover:text-primary"
                 }`}
-                whileHover={{ x: 2 }}
+                whileHover={{
+                  x: 5,
+                  transition: { duration: 0.05, ease: "linear" },
+                }}
                 whileTap={{ scale: 0.98 }}
               >
                 {section}
@@ -95,7 +97,6 @@ export default function Sidebar() {
         </motion.label>
       </motion.nav>
 
-      {/* Modal (unchanged UI; optional fade pop on open could be added) */}
       <input type="checkbox" id="contact_modal" className="modal-toggle" />
       <div className="modal" role="dialog">
         <div className="modal-box relative">
@@ -173,7 +174,7 @@ export default function Sidebar() {
                 status === "idle"
                   ? "btn-primary"
                   : status === "sending"
-                  ? "bg-blue-500 hover:bg-blue-600"
+                  ? "bg-secondary hover:bg-secondary-content"
                   : status === "sent"
                   ? "btn-success"
                   : "btn-error"

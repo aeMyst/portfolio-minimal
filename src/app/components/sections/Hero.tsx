@@ -44,7 +44,7 @@ const HeroSection = () => {
           </motion.div>
 
           <motion.a
-            href="/resume.pdf"
+            href="https://drive.google.com/file/d/1MpTdOlc0UjdoxwftWkdBFnG6INIoB1Zo/view?usp=sharing"
             target="_blank"
             className="btn btn-primary w-40 h-14 mt-6 text-md transition duration-300 hover:scale-105"
             variants={bubbleIn}

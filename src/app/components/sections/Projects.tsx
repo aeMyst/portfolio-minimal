@@ -1,5 +1,15 @@
 "use client";
 
+import { motion } from "framer-motion";
+import {
+  gridStagger,
+  headerPop,
+  cardItem,
+  imageReveal,
+  innerStagger,
+  pillItem,
+} from "../animations/projectVariants";
+
 const ProjectsSection = () => {
   const projects = [
     {
@@ -90,54 +100,80 @@ const ProjectsSection = () => {
       id="projects"
       className="min-h-screen flex flex-col items-center justify-center bg-base-100 p-6"
     >
-      <h2 className="text-3xl font-semibold mb-8">PROJECTS</h2>
+      <motion.h2
+        className="text-3xl font-semibold mb-8"
+        variants={headerPop}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.6 }}
+      >
+        PROJECTS
+      </motion.h2>
 
-      {/* Project Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-screen-lg mb-12">
+      {/* Grid: parent stagger */}
+      <motion.div
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-screen-lg mb-12"
+        variants={gridStagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.25 }}
+      >
         {projects.map((project, index) => (
-          <div
+          <motion.div
             key={index}
             className="card bg-base-200 shadow-xl p-4 flex flex-col justify-between h-full"
+            variants={cardItem}
+            whileHover={{ y: -4 }} // subtle lift
+            transition={{ type: "spring", stiffness: 250, damping: 20 }}
           >
             {/* Project Image */}
-            <img
+            <motion.img
               src={project.image}
               alt={project.name}
               className="w-full h-48 object-cover rounded-lg mb-4"
+              variants={imageReveal}
+              whileHover={{ scale: 1.03 }}
+              transition={{ duration: 0.25 }}
             />
 
-            <h3 className="text-xl font-bold mb-4">{project.name}</h3>
+            <h3 className="text-xl font-bold mb-2">{project.name}</h3>
             <p className="text-md mb-4 text-white">{project.description}</p>
 
-            {/* Technologies List */}
+            {/* Technologies List (nested stagger) */}
             <div className="mb-4">
               <h4 className="text-lg font-semibold text-white">
                 Technologies:
               </h4>
-              <div className="flex flex-wrap gap-2">
+              <motion.div
+                className="flex flex-wrap gap-2 mt-2"
+                variants={innerStagger}
+              >
                 {project.technologies.map((tech, techIndex) => (
-                  <span
+                  <motion.span
                     key={techIndex}
                     className="text-xs font-semibold bg-secondary text-white px-3 py-1 rounded-full"
+                    variants={pillItem}
                   >
                     {tech}
-                  </span>
+                  </motion.span>
                 ))}
-              </div>
+              </motion.div>
             </div>
 
             {/* GitHub Button */}
-            <a
+            <motion.a
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-primary mt-auto transition duration-300 hover:scale-105"
+              className="btn btn-primary mt-auto"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.98 }}
             >
               View on GitHub
-            </a>
-          </div>
+            </motion.a>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 };

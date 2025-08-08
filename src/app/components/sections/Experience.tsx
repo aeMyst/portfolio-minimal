@@ -1,5 +1,15 @@
 "use client";
 
+import { motion } from "framer-motion";
+import {
+  sectionStagger,
+  rowStagger,
+  slideLeft,
+  slideRight,
+  cardPop,
+  dotPulse,
+} from "../animations/experienceVariants";
+
 type ExperienceItem = {
   year: string;
   role: string;
@@ -34,33 +44,57 @@ const ExperienceSection = () => {
       id="experience"
       className="min-h-screen bg-base-100 flex flex-col items-center px-4 py-16"
     >
-      <h2 className="text-4xl font-bold mb-12">EXPERIENCE</h2>
+      <motion.h2
+        className="text-4xl font-bold mb-12"
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.7 }}
+        transition={{ duration: 0.35 }}
+      >
+        EXPERIENCE
+      </motion.h2>
 
-      <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical w-full max-w-4xl">
+      {/* Parent stagger for whole list */}
+      <motion.ul
+        className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical w-full max-w-4xl"
+        variants={sectionStagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.35 }}
+      >
         {EXPERIENCES.map((item, idx) => {
           const isStart = idx % 2 === 0; // alternate sides
+          const sideVariant = isStart ? slideLeft : slideRight;
+
           return (
-            <li key={idx}>
+            <motion.li key={idx} variants={rowStagger}>
               {idx !== 0 && <hr />}
 
+              {/* dot */}
               <div className="timeline-middle">
-                <CheckIcon />
+                <motion.span variants={dotPulse} className="inline-block">
+                  <CheckIcon />
+                </motion.span>
               </div>
 
-              <div
+              {/* side content */}
+              <motion.div
                 className={
                   (isStart ? "timeline-start md:text-end" : "timeline-end") +
                   " md:mb-10 mb-8"
                 }
+                variants={sideVariant}
               >
-                {/* Card */}
-                <div className="card bg-base-200/60 shadow-md border border-base-300 transition duration-300 hover:scale-102">
+                <motion.div
+                  className="card bg-base-200/60 shadow-md border border-base-300 transition duration-300 hover:scale-[1.02]"
+                  variants={cardPop}
+                >
                   <div className="card-body p-5 md:p-6">
                     <time className="font-mono italic text-sm opacity-70">
                       {item.year}
                     </time>
 
-                    <h3 className="text-lg font-black mt-1 ">
+                    <h3 className="text-lg font-black mt-1">
                       {item.role}
                       {item.org ? (
                         <span className="font-normal opacity-90">
@@ -74,14 +108,14 @@ const ExperienceSection = () => {
                       {item.desc}
                     </p>
                   </div>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
 
               <hr />
-            </li>
+            </motion.li>
           );
         })}
-      </ul>
+      </motion.ul>
     </section>
   );
 };

@@ -34,7 +34,7 @@ const ExperienceSection = () => {
       id="experience"
       className="min-h-screen bg-base-100 flex flex-col items-center px-4 py-16"
     >
-      <h2 className="text-4xl font-bold mb-12">Experience</h2>
+      <h2 className="text-4xl font-bold mb-12">-----= EXPERIENCE =-----</h2>
 
       <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical w-full max-w-4xl">
         {EXPERIENCES.map((item, idx) => {

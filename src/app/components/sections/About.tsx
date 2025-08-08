@@ -6,7 +6,7 @@ const AboutSection = () => {
       id="about"
       className="h-screen flex items-center justify-center bg-base-100"
     >
-      <h2 className="text-3xl font-semibold">About Me</h2>
+      <h2 className="text-3xl font-semibold">-----= ABOUT ME =-----</h2>
     </section>
   );
 };

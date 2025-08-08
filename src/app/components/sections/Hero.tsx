@@ -7,7 +7,7 @@ const HeroSection = () => {
   return (
     <section
       id="home"
-      className="h-screen flex items-center justify-center bg-base-100"
+      className="min-h-screen flex items-center justify-center bg-base-100"
     >
       <div className="card w-full max-w-5xl bg-base-300 shadow-[0_15px_60px_rgba(0,0,0,0.8)] p-6 md:flex-row flex-col items-center gap-6">
         {/* Left side: text content */}

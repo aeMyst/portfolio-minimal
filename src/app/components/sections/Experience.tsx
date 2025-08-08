@@ -34,7 +34,7 @@ const ExperienceSection = () => {
       id="experience"
       className="min-h-screen bg-base-100 flex flex-col items-center px-4 py-16"
     >
-      <h2 className="text-4xl font-bold mb-12">-----= EXPERIENCE =-----</h2>
+      <h2 className="text-4xl font-bold mb-12">EXPERIENCE</h2>
 
       <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical w-full max-w-4xl">
         {EXPERIENCES.map((item, idx) => {
@@ -54,7 +54,7 @@ const ExperienceSection = () => {
                 }
               >
                 {/* Card */}
-                <div className="card bg-base-200/60 shadow-md border border-base-300 transition duration-300 hover:scale-105">
+                <div className="card bg-base-200/60 shadow-md border border-base-300 transition duration-300 hover:scale-102">
                   <div className="card-body p-5 md:p-6">
                     <time className="font-mono italic text-sm text-primary opacity-70">
                       {item.year}

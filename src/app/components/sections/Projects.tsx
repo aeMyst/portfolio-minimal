@@ -24,7 +24,7 @@ const ProjectsSection = () => {
         "Community based board game website that focuses on practicing HCI principles",
       github: "https://github.com/aeMyst/TableTalk",
       image: "/projects/tabletalk.png",
-      technologies: ["React", "JavaScript", "HTML", "CSS", "TailwindCSS"],
+      technologies: ["React", "JavaScript", "CSS", "TailwindCSS"],
     },
     {
       name: "RevRentals Marketplace",
@@ -58,7 +58,6 @@ const ProjectsSection = () => {
       github: "https://github.com/aeMyst/ai-chef",
       image: "/projects/chefai.png",
       technologies: [
-        "HTML",
         "CSS",
         "JavaScript",
         "Python",
@@ -91,7 +90,7 @@ const ProjectsSection = () => {
       id="projects"
       className="min-h-screen flex flex-col items-center justify-center bg-base-100 p-6"
     >
-      <h2 className="text-3xl font-semibold mb-8">-----= PROJECTS =-----</h2>
+      <h2 className="text-3xl font-semibold mb-8">PROJECTS</h2>
 
       {/* Project Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-screen-lg mb-12">

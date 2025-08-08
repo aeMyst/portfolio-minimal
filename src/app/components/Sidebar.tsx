@@ -61,7 +61,7 @@ export default function Sidebar() {
           </motion.p>
         </motion.div>
 
-        <motion.div variants={linksContainer} className="space-y-2 text-xl">
+        <motion.div variants={linksContainer} className="space-y-4 text-xl">
           {sections.map((section) => {
             const sectionId = section.toLowerCase();
             const isActive = activeSection === sectionId;

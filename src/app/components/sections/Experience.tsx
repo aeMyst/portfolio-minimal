@@ -56,14 +56,14 @@ const ExperienceSection = () => {
                 {/* Card */}
                 <div className="card bg-base-200/60 shadow-md border border-base-300 transition duration-300 hover:scale-102">
                   <div className="card-body p-5 md:p-6">
-                    <time className="font-mono italic text-sm text-primary opacity-70">
+                    <time className="font-mono italic text-sm opacity-70">
                       {item.year}
                     </time>
 
-                    <h3 className="text-lg font-black mt-1 text-primary">
+                    <h3 className="text-lg font-black mt-1 ">
                       {item.role}
                       {item.org ? (
-                        <span className="font-normal text-primary opacity-90">
+                        <span className="font-normal opacity-90">
                           {" "}
                           · {item.org}
                         </span>

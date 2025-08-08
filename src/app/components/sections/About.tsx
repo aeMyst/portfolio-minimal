@@ -26,7 +26,7 @@ const AboutSection = () => {
   return (
     <section
       id="about"
-      className="min-h-screen flex flex-col items-center justify-center bg-base-100"
+      className="min-h-screen flex flex-col items-center bg-base-100"
     >
       <h2 className="text-3xl font-semibold mb-8">ABOUT ME</h2>
 
@@ -41,12 +41,60 @@ const AboutSection = () => {
           defaultChecked
         />
         <div className="tab-content border-base-300 bg-base-100 p-10">
-          <h3 className="text-4xl font-semibold mb-8">Background</h3>
-          <p className="text-white">
-            This is my background. I am a passionate computer science student
-            with a keen interest in software development, AI, and machine
-            learning.
+          <h3 className="text-4xl font-semibold mb-6">Background</h3>
+          <p className="text-white mb-4">
+            I’m a passionate Computer Science student with aspirations to become
+            a professional Data Analyst and Web Developer. Outside of my
+            coursework, I dedicate a lot of time to volunteering at my
+            university. As a Prospective Student Engagement Ambassador, I’ve had
+            the privilege of welcoming new students and their families, giving
+            campus tours that highlight my favorite spots, and helping organize
+            events for the Computer Science Department such as orientations and
+            student activities. In addition, I serve as the Tech Executive for
+            the Data Science and Machine Learning Club, where I design and
+            manage tools that keep our operations running smoothly. I love
+            bringing ideas to life; there’s nothing more rewarding than turning
+            a concept into a polished, useful final product. I believe data is
+            essential for making well-informed, justifiable decisions, and I’m
+            excited by future opportunities to combine my analytical skills with
+            my web development expertise to create intuitive dashboards that can
+            be easily understood by both professionals and non-professionals
+            alike.
           </p>
+          <p className="text-white mb-4">
+            Outside of academics, I have a wide range of hobbies that keep me
+            inspired and energized. I’m an avid motorcyclist; I love the feeling
+            of the open road and the fresh breeze, especially when riding with
+            friends. Traveling is another big passion of mine, and I’ve been
+            fortunate to visit many countries, including Mexico, Japan, the
+            United States, several parts of Europe, and more. I’m currently
+            eyeing trips to Singapore and China, both of which have incredible
+            sights I can’t wait to experience. In my free time, I also enjoy
+            gaming with friends. It’s my way of unwinding, connecting, and
+            having a good laugh. Though sometimes things can get competitive,
+            its all a part of the fun. I believe that my passion for technology
+            has always gone hand-in-hand with my love for video games, as I
+            believe technology has the power to bring people together and build
+            strong communities.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <img
+              src="/assets/motorcycle.jpg"
+              alt="Description 1"
+              className="w-full h-64 object-cover rounded-lg shadow-lg"
+            />
+            <img
+              src="/assets/friends.jpg"
+              alt="Description 2"
+              className="w-full h-64 object-cover rounded-lg shadow-lg"
+            />
+            <img
+              src="/assets/travel.jpg"
+              alt="Description 3"
+              className="w-full h-64 object-cover rounded-lg shadow-lg"
+            />
+          </div>
         </div>
 
         <input

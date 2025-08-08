@@ -1,6 +1,14 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import {
+  sideContainer,
+  itemFade,
+  bubbleIn,
+  linksContainer,
+  linkItem,
+} from "./animations/sidebarVariants";
 
 export default function Sidebar() {
   const sections = ["Home", "About", "Projects", "Experience"];
@@ -12,9 +20,7 @@ export default function Sidebar() {
   useEffect(() => {
     const handleIntersection = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
+        if (entry.isIntersecting) setActiveSection(entry.target.id);
       });
     };
 
@@ -24,60 +30,72 @@ export default function Sidebar() {
       threshold: 0.4,
     });
 
-    const sectionElements = sections.map((section) =>
-      document.getElementById(section.toLowerCase())
-    );
-
-    sectionElements.forEach((el) => {
-      if (el) observer.observe(el);
-    });
-
-    return () => {
-      sectionElements.forEach((el) => {
-        if (el) observer.unobserve(el);
-      });
-    };
+    const els = sections.map((s) => document.getElementById(s.toLowerCase()));
+    els.forEach((el) => el && observer.observe(el));
+    return () => els.forEach((el) => el && observer.unobserve(el!));
   }, []);
 
   return (
     <>
-      <nav className="fixed top-0 left-0 h-full w-48 bg-base-300 text-white p-6 space-y-6 z-10">
+      <motion.nav
+        className="fixed top-0 left-0 h-full w-48 bg-base-300 text-white p-6 space-y-6 z-10"
+        variants={sideContainer}
+        initial="hidden"
+        animate="show" // sidebar is always visible; animate on mount
+      >
         {/* Profile section */}
-        <div className="flex flex-col items-center space-y-2 mb-6">
-          <img
+        <motion.div
+          className="flex flex-col items-center space-y-2 mb-6"
+          variants={itemFade}
+        >
+          <motion.img
             src="peter_tran.jpg"
             alt="Profile"
             className="w-28 h-28 rounded-full object-cover shadow-lg border-2 border-primary"
+            variants={bubbleIn}
+            whileHover={{ scale: 1.03 }}
+            transition={{ type: "spring", stiffness: 260, damping: 20 }}
           />
-          <p className="text-lg font-semibold">Peter Tran</p>
-        </div>
+          <motion.p className="text-lg font-semibold" variants={itemFade}>
+            Peter Tran
+          </motion.p>
+        </motion.div>
 
-        {/* Navigation tools */}
-        {sections.map((section) => {
-          const sectionId = section.toLowerCase();
-          const isActive = activeSection === sectionId;
-          return (
-            <a
-              key={section}
-              href={`#${sectionId}`}
-              className={`block transition ${
-                isActive ? "text-primary font-bold" : "hover:text-primary"
-              }`}
-            >
-              {section}
-            </a>
-          );
-        })}
+        {/* Navigation tools (own stagger so links go one after another) */}
+        <motion.div variants={linksContainer} className="space-y-2">
+          {sections.map((section) => {
+            const sectionId = section.toLowerCase();
+            const isActive = activeSection === sectionId;
+            return (
+              <motion.a
+                key={section}
+                href={`#${sectionId}`}
+                variants={linkItem}
+                className={`block transition ${
+                  isActive ? "text-primary font-bold" : "hover:text-primary"
+                }`}
+                whileHover={{ x: 2 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                {section}
+              </motion.a>
+            );
+          })}
+        </motion.div>
 
         {/* Contact button */}
-        <label
+        <motion.label
           htmlFor="contact_modal"
-          className="btn btn-primary w-full mt-6 transition duration-300 hover:scale-105"
+          className="btn btn-primary w-full mt-6"
+          variants={itemFade}
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.98 }}
         >
           Contact Me
-        </label>
-      </nav>
+        </motion.label>
+      </motion.nav>
 
+      {/* Modal (unchanged UI; optional fade pop on open could be added) */}
       <input type="checkbox" id="contact_modal" className="modal-toggle" />
       <div className="modal" role="dialog">
         <div className="modal-box relative">
@@ -97,7 +115,6 @@ export default function Sidebar() {
             onSubmit={async (e) => {
               e.preventDefault();
               setStatus("sending");
-
               const form = e.target as HTMLFormElement;
               const formData = {
                 name: (form.elements.namedItem("name") as HTMLInputElement)
@@ -108,13 +125,11 @@ export default function Sidebar() {
                   form.elements.namedItem("message") as HTMLTextAreaElement
                 ).value,
               };
-
               const res = await fetch("/api/email", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),
               });
-
               if (res.ok) {
                 setStatus("sent");
                 form.reset();
@@ -142,7 +157,7 @@ export default function Sidebar() {
               name="email"
               type="email"
               placeholder="Your Email"
-              className="input input-bordered border-primary w-full text-primary "
+              className="input input-bordered border-primary w-full text-primary"
               required
             />
             <textarea
@@ -150,8 +165,7 @@ export default function Sidebar() {
               placeholder="Your Message"
               className="textarea textarea-bordered border-primary w-full text-primary"
               required
-            ></textarea>
-
+            />
             <button
               type="submit"
               className={`btn btn-wide w-full text-black mx-auto block transition duration-300 hover:scale-105
@@ -163,8 +177,7 @@ export default function Sidebar() {
                   : status === "sent"
                   ? "btn-success"
                   : "btn-error"
-              }
-              `}
+              }`}
               disabled={status === "sending"}
             >
               {status === "idle" && "Send"}

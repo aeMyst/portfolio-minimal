@@ -28,7 +28,7 @@ function Model() {
 export default function Hero3DModel() {
   return (
     <div className="w-full max-w-sm aspect-square mx-auto border-2 bg-white/5 backdrop-blur-lg border-primary rounded-xl ">
-      <Canvas camera={{ position: [0, 2, 15], fov: 90 }}>
+      <Canvas camera={{ position: [0, 0, 15], fov: 90 }}>
         <ambientLight intensity={0.5} />
         <directionalLight position={[2, 2, 2]} />
         <Suspense fallback={null}>

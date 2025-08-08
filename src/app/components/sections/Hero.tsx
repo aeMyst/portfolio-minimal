@@ -1,7 +1,10 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Hero3DModel from "../HeroThree";
 import Social from "../SocialLinks";
+import TypewriterLine from "../animations/typeWriter";
+import { heroStagger, bubbleIn } from "../animations/heroVariants";
 
 const HeroSection = () => {
   return (
@@ -9,30 +12,55 @@ const HeroSection = () => {
       id="home"
       className="min-h-screen flex items-center justify-center bg-base-100"
     >
-      <div className="card w-full max-w-5xl bg-base-300 shadow-[0_15px_60px_rgba(0,0,0,0.8)] p-6 md:flex-row flex-col items-center gap-6">
-        {/* Left side: text content */}
-        <div className="card-body items-center text-center md:items-start md:text-left flex-1">
-          <h1 className="text-6xl font-bold">Peter Tran</h1>
-          <p className="text-md text-white mt-2">
-            Computer Science Student | Data Analyst & Software Developer
-          </p>
-          <div className="mt-4">
+      <motion.div
+        className="card w-full max-w-5xl bg-base-300 shadow-[0_15px_60px_rgba(0,0,0,0.8)] p-6 md:flex-row flex-col items-center gap-6"
+        variants={heroStagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.5 }}
+      >
+        {/* Left side */}
+        <motion.div
+          className="card-body items-center text-center md:items-start md:text-left flex-1"
+          variants={heroStagger}
+        >
+          <motion.h1 className="text-6xl font-bold" variants={bubbleIn}>
+            Peter Tran
+          </motion.h1>
+
+          <TypewriterLine
+            phrases={[
+              "Computer Science Student",
+              "Data Analyst & Software Developer",
+            ]}
+            className="text-md text-white mt-2"
+            typeSpeed={40}
+            eraseSpeed={25}
+            holdDelay={1000}
+          />
+
+          <motion.div className="mt-4" variants={bubbleIn}>
             <Social />
-          </div>
-          <a
+          </motion.div>
+
+          <motion.a
             href="/resume.pdf"
             target="_blank"
             className="btn btn-primary w-40 h-14 mt-6 text-md transition duration-300 hover:scale-105"
+            variants={bubbleIn}
           >
             View Resume
-          </a>
-        </div>
+          </motion.a>
+        </motion.div>
 
-        {/* Right side: 3D model */}
-        <div className="flex justify-center items-center flex-1 w-full max-w-md">
+        {/* Right side */}
+        <motion.div
+          className="flex justify-center items-center flex-1 w-full max-w-md"
+          variants={bubbleIn}
+        >
           <Hero3DModel />
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 };

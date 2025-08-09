@@ -12,7 +12,7 @@ import {
 import SlideUpModal from "../components/SlideUpModal";
 
 export default function Sidebar() {
-  const sections = ["Home", "About", "Projects", "Experience"];
+  const SECTIONS = ["Home", "About", "Projects", "Experience"];
   const [activeSection, setActiveSection] = useState<string>("");
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle"
@@ -21,15 +21,24 @@ export default function Sidebar() {
 
   useEffect(() => {
     const obs = new IntersectionObserver(
-      (entries) =>
-        entries.forEach(
-          (e) => e.isIntersecting && setActiveSection(e.target.id)
-        ),
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) setActiveSection(e.target.id);
+        });
+      },
       { threshold: 0.4 }
     );
-    const els = sections.map((s) => document.getElementById(s.toLowerCase()));
-    els.forEach((el) => el && obs.observe(el));
-    return () => els.forEach((el) => el && obs.unobserve(el!));
+
+    const els = SECTIONS.map((s) =>
+      document.getElementById(s.toLowerCase())
+    ).filter(Boolean) as Element[];
+
+    els.forEach((el) => obs.observe(el));
+
+    return () => {
+      els.forEach((el) => obs.unobserve(el));
+      obs.disconnect();
+    };
   }, []);
 
   return (
@@ -60,7 +69,7 @@ export default function Sidebar() {
 
         {/* Links */}
         <motion.div variants={linksContainer} className="space-y-4 text-xl">
-          {sections.map((section) => {
+          {SECTIONS.map((section) => {
             const id = section.toLowerCase();
             const isActive = activeSection === id;
             return (

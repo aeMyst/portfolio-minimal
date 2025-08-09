@@ -19,7 +19,7 @@ export default function LandingPage() {
       </div>
       <ThemeToggle />
       <Sidebar />
-      <div className="ml-48 w-full flex flex-col gap-32">
+      <div className="w-full md:ml-48 flex flex-col gap-32 px-4 md:px-0">
         <HeroSection />
         <AboutSection />
         <ProjectsSection />

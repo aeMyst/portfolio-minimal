@@ -42,7 +42,7 @@ const ExperienceSection = () => {
   return (
     <section
       id="experience"
-      className="min-h-screen bg-base-100 flex flex-col items-center px-4 py-16"
+      className="min-h-screen bg-base-100 flex flex-col items-center justify-center px-4 py-16"
     >
       <motion.h2
         className="text-4xl font-bold mb-12"

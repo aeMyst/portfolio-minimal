@@ -67,7 +67,6 @@ export default function Sidebar() {
 
   return (
     <>
-      {/* DESKTOP SIDEBAR (md+) */}
       <motion.nav
         className="hidden md:flex fixed top-0 left-0 h-full w-48 bg-base-300 text-white p-6 z-20 flex-col space-y-6"
         variants={sideContainer}
@@ -75,7 +74,7 @@ export default function Sidebar() {
         animate="show"
       >
         <motion.div
-          className="flex flex-col items-center space-y-2 mb-2"
+          className="flex flex-col items-center space-y-2 mb-8"
           variants={itemFade}
         >
           <motion.img
@@ -175,7 +174,7 @@ export default function Sidebar() {
                 initial="hidden"
                 animate="show"
               >
-                <motion.p className="text-lg font-semibold" variants={itemFade}>
+                <motion.p className="text-xl font-semibold" variants={itemFade}>
                   Peter Tran
                 </motion.p>
               </motion.div>

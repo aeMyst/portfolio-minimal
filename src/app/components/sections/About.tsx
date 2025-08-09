@@ -36,7 +36,7 @@ const AboutSection = () => {
   return (
     <section
       id="about"
-      className="min-h-screen flex flex-col items-center justify-center bg-base-100"
+      className="min-h-screen flex flex-col items-center bg-base-100"
     >
       <motion.h2
         className="text-3xl font-semibold mb-8"

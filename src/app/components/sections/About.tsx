@@ -73,20 +73,20 @@ const AboutSection = () => {
           </motion.h3>
 
           <motion.p className="text-white mb-4" variants={slideInRight}>
-            I&apos;sm a passionate Computer Science student with aspirations to
+            I&apos;m a passionate Computer Science student with aspirations to
             become a professional Data Analyst and Web Developer. Outside of my
             coursework, I dedicate a lot of time to volunteering at my
             university. As a Prospective Student Engagement Ambassador,
-            I&apos;sve had the privilege of welcoming new students and their
+            I&apos;ve had the privilege of welcoming new students and their
             families, giving campus tours that highlight my favorite spots, and
             helping organize events for the Computer Science Department such as
             orientations and student activities. In addition, I serve as the
             Tech Executive for the Data Science and Machine Learning Club, where
             I design and manage tools that keep our operations running smoothly.
-            I love bringing ideas to life; there&apos;ss nothing more rewarding
+            I love bringing ideas to life; there&apos;s nothing more rewarding
             than turning a concept into a polished, useful final product. I
             believe data is essential for making well-informed, justifiable
-            decisions, and I&apos;sm excited by future opportunities to combine
+            decisions, and I&apos;m excited by future opportunities to combine
             my analytical skills with my web development expertise to create
             intuitive dashboards that can be easily understood by both
             professionals and non-professionals alike.
@@ -94,14 +94,14 @@ const AboutSection = () => {
 
           <motion.p className="text-white mb-4" variants={slideInLeft}>
             Outside of academics, I have a wide range of hobbies that keep me
-            inspired and energized. I&apos;sm an avid motorcyclist; I love the
+            inspired and energized. I&apos;m an avid motorcyclist; I love the
             feeling of the open road and the fresh breeze, especially when
             riding with friends. Traveling is another big passion of mine, and
-            I&apos;sve been fortunate to visit many countries, including Mexico,
+            I&apos;ve been fortunate to visit many countries, including Mexico,
             Japan, the United States, several parts of Europe, and more.
-            I&apos;sm currently eyeing trips to Singapore and China, both of
-            which have incredible sights I can&apos;st wait to experience. In my
-            free time, I also enjoy gaming with friends. It&apos;ss my way of
+            I&apos;m currently eyeing trips to Singapore and China, both of
+            which have incredible sights I can&apos;t wait to experience. In my
+            free time, I also enjoy gaming with friends. It&apos;s my way of
             unwinding, connecting, and having a good laugh. Though sometimes
             things can get competitive, its all a part of the fun. I believe
             that my passion for technology has always gone hand-in-hand with my

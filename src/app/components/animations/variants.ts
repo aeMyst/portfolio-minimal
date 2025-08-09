@@ -42,10 +42,4 @@ export const fadeIn: Variants = {
   show: { opacity: 1, transition: { duration: 0.4 } }
 };
 
-// Single item rise-up
-export const itemUp: Variants = {
-  hidden: { opacity: 0, y: 25 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.35, ease: "easeOut" as const } }
-};
-
 

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import {
   sideContainer,
   itemFade,
@@ -13,45 +13,69 @@ import SlideUpModal from "../components/SlideUpModal";
 
 export default function Sidebar() {
   const SECTIONS = ["Home", "About", "Projects", "Experience"];
-  const [activeSection, setActiveSection] = useState<string>("");
+  const [activeSection, setActiveSection] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle"
   );
   const [open, setOpen] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   useEffect(() => {
     const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) setActiveSection(e.target.id);
-        });
-      },
+      (entries) =>
+        entries.forEach(
+          (e) => e.isIntersecting && setActiveSection(e.target.id)
+        ),
       { threshold: 0.4 }
     );
-
     const els = SECTIONS.map((s) =>
       document.getElementById(s.toLowerCase())
     ).filter(Boolean) as Element[];
-
     els.forEach((el) => obs.observe(el));
-
     return () => {
       els.forEach((el) => obs.unobserve(el));
       obs.disconnect();
     };
   }, []);
 
+  const NavLinks = ({ onClick }: { onClick?: () => void }) => (
+    <motion.div variants={linksContainer} className="space-y-4 text-xl">
+      {SECTIONS.map((section) => {
+        const id = section.toLowerCase();
+        const isActive = activeSection === id;
+        return (
+          <motion.a
+            key={section}
+            href={`#${id}`}
+            onClick={onClick}
+            variants={linkItem}
+            className={`block transition ${
+              isActive ? "text-primary font-bold" : "hover:text-primary"
+            }`}
+            whileHover={{
+              x: 5,
+              transition: { duration: 0.05, ease: "linear" },
+            }}
+            whileTap={{ scale: 0.98 }}
+          >
+            {section}
+          </motion.a>
+        );
+      })}
+    </motion.div>
+  );
+
   return (
     <>
+      {/* DESKTOP SIDEBAR (md+) */}
       <motion.nav
-        className="fixed top-0 left-0 h-full w-48 bg-base-300 text-white p-6 space-y-6 z-10"
+        className="hidden md:flex fixed top-0 left-0 h-full w-48 bg-base-300 text-white p-6 z-20 flex-col space-y-6"
         variants={sideContainer}
-        initial="hidden"
+        initial={false}
         animate="show"
       >
-        {/* Profile */}
         <motion.div
-          className="flex flex-col items-center space-y-2 mb-6"
+          className="flex flex-col items-center space-y-2 mb-2"
           variants={itemFade}
         >
           <motion.img
@@ -67,35 +91,12 @@ export default function Sidebar() {
           </motion.p>
         </motion.div>
 
-        {/* Links */}
-        <motion.div variants={linksContainer} className="space-y-4 text-xl">
-          {SECTIONS.map((section) => {
-            const id = section.toLowerCase();
-            const isActive = activeSection === id;
-            return (
-              <motion.a
-                key={section}
-                href={`#${id}`}
-                variants={linkItem}
-                className={`block transition ${
-                  isActive ? "text-primary font-bold" : "hover:text-primary"
-                }`}
-                whileHover={{
-                  x: 5,
-                  transition: { duration: 0.05, ease: "linear" },
-                }}
-                whileTap={{ scale: 0.98 }}
-              >
-                {section}
-              </motion.a>
-            );
-          })}
-        </motion.div>
+        <NavLinks />
 
         <motion.button
           type="button"
           onClick={() => setOpen(true)}
-          className="btn btn-primary w-full mt-6"
+          className="btn btn-primary w-full mt-2"
           variants={itemFade}
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.98 }}
@@ -103,6 +104,104 @@ export default function Sidebar() {
           Contact Me
         </motion.button>
       </motion.nav>
+
+      <button
+        aria-label="Toggle menu"
+        className="fixed top-4 left-4 z-[70] btn btn-circle md:hidden"
+        onClick={() => setDrawerOpen((prev) => !prev)}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+        </svg>
+      </button>
+
+      <AnimatePresence>
+        {drawerOpen && (
+          <motion.div
+            key="mobile-menu-overlay"
+            className="fixed inset-0 z-[60] md:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            {/* Backdrop */}
+            <motion.div
+              key="backdrop"
+              className="absolute inset-0 bg-black/50"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setDrawerOpen(false)}
+              aria-label="Close menu"
+            />
+
+            {/* Panel */}
+            <motion.aside
+              key="panel"
+              initial={{ x: -288, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: -288, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 260, damping: 24 }}
+              className="absolute left-0 top-0 h-full w-72 bg-base-300 text-white p-6 flex flex-col space-y-6 shadow-xl z-[61]"
+            >
+              {/* Profile */}
+              <motion.div
+                className="flex items-center justify-center gap-3"
+                variants={itemFade}
+                initial="hidden"
+                animate="show"
+              >
+                <motion.img
+                  src="peter_tran.jpg"
+                  alt="Profile"
+                  className="w-28 h-28 rounded-full object-cover border-2 border-primary"
+                  variants={bubbleIn}
+                />
+              </motion.div>
+              <motion.div
+                className="flex items-center justify-center gap-3"
+                variants={itemFade}
+                initial="hidden"
+                animate="show"
+              >
+                <motion.p className="text-lg font-semibold" variants={itemFade}>
+                  Peter Tran
+                </motion.p>
+              </motion.div>
+
+              {/* Links (close on click) */}
+              <div>
+                <NavLinks onClick={() => setDrawerOpen(false)} />
+              </div>
+
+              <motion.button
+                type="button"
+                onClick={() => {
+                  setDrawerOpen(false);
+                  setOpen(true);
+                }}
+                className="btn btn-primary w-full"
+                variants={itemFade}
+                initial="hidden"
+                animate="show"
+              >
+                Contact Me
+              </motion.button>
+            </motion.aside>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Slide-up modal content */}
       <SlideUpModal

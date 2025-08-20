@@ -42,7 +42,7 @@ const AboutSection = () => {
         className="text-3xl font-semibold mb-8"
         initial={{ opacity: 0, y: -12 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.6 }}
+        viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.4 }}
       >
         ABOUT ME
@@ -63,7 +63,7 @@ const AboutSection = () => {
           variants={staggerContainer}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.5 }}
+          viewport={{ once: true, amount: 0.2 }}
         >
           <motion.h3
             className="text-4xl font-semibold mb-6"
@@ -98,15 +98,15 @@ const AboutSection = () => {
             feeling of the open road and the fresh breeze, especially when
             riding with friends. Traveling is another big passion of mine, and
             I&apos;ve been fortunate to visit many countries, including Mexico,
-            Japan, the United States, several parts of Europe, and more.
-            I&apos;m currently eyeing trips to Singapore and China, both of
-            which have incredible sights I can&apos;t wait to experience. In my
-            free time, I also enjoy gaming with friends. It&apos;s my way of
-            unwinding, connecting, and having a good laugh. Though sometimes
-            things can get competitive, its all a part of the fun. I believe
-            that my passion for technology has always gone hand-in-hand with my
-            love for video games, as I believe technology has the power to bring
-            people together and build strong communities.
+            the United States, and more. I&apos;m currently eyeing trips to
+            Singapore and China, both of which have incredible sights I
+            can&apos;t wait to experience. In my free time, I also enjoy gaming
+            with friends. It&apos;s my way of unwinding, connecting, and having
+            a good laugh. Though sometimes things can get competitive, its all a
+            part of the fun. I believe that my passion for technology has always
+            gone hand-in-hand with my love for video games, as I believe
+            technology has the power to bring people together and build strong
+            communities.
           </motion.p>
 
           <motion.div
@@ -364,7 +364,7 @@ const AboutSection = () => {
 
               <motion.p className="text-white mb-4" variants={slideInRight}>
                 I am currently a student at the University of Calgary studying
-                Computer Science. Throughout my academics, I&apos;sve had
+                Computer Science. Throughout my academics, I&apos;ve had
                 numerous opportunities to build my skills through comprehensive
                 projects and activities. Here is a list of some of the
                 highlighted courses I have taken:

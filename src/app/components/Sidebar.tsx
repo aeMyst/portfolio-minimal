@@ -283,7 +283,7 @@ export default function Sidebar() {
               placeholder="Enter Your Message"
               className="textarea textarea-bordered border-primary w-full text-primary resize-none flex-1 min-h-0 h-full"
               required
-              rows={16}
+              rows={8}
             />
           </div>
           <button

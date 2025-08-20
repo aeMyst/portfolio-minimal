@@ -105,7 +105,7 @@ const ProjectsSection = () => {
         variants={headerPop}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.6 }}
+        viewport={{ once: true, amount: 0.1 }}
       >
         PROJECTS
       </motion.h2>
@@ -116,7 +116,7 @@ const ProjectsSection = () => {
         variants={gridStagger}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.25 }}
+        viewport={{ once: true, amount: 0.1 }}
       >
         {projects.map((project, index) => (
           <motion.div

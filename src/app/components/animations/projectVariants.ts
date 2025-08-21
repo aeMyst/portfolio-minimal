@@ -4,7 +4,7 @@ export const gridStagger: Variants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: { delayChildren: 0.2, staggerChildren: 0.4 },
+    transition: { delayChildren: 0.2, staggerChildren: 0.2 },
   },
 };
 
@@ -20,7 +20,7 @@ export const cardItem: Variants = {
 
 export const imageReveal: Variants = {
   hidden: { opacity: 0, scale: 1.03 },
-  show:   { opacity: 1, scale: 1, transition: { duration: 0.45, ease: "easeOut" as const } },
+  show:   { opacity: 1, scale: 1, transition: { duration: 0.4, ease: "easeOut" as const } },
 };
 
 export const innerStagger: Variants = {

@@ -34,7 +34,7 @@ export default function SlideUpModal({
         <div className="fixed inset-0 z-[2147483647]" aria-modal role="dialog">
           {/* Backdrop */}
           <motion.div
-            className="fixed inset-0 bg-black/60"
+            className="fixed inset-0 bg-black/40"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -46,7 +46,7 @@ export default function SlideUpModal({
             className="
               fixed left-0 right-0 bottom-0 mx-auto
               w-full max-w-3xl
-              h-[95vh] sm:h-[85vh]
+              h-[90vh] sm:h-[85vh]
               bg-base-100 text-base-content
               rounded-t-2xl shadow-2xl
               p-5 sm:p-6

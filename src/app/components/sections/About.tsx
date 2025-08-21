@@ -143,7 +143,7 @@ const AboutSection = () => {
             variants={staggerContainer}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, amount: 0.4 }}
+            viewport={{ once: true, amount: 0.1 }}
           >
             <motion.h3
               className="text-4xl font-semibold mb-4"
@@ -344,7 +344,7 @@ const AboutSection = () => {
             variants={staggerContainer}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, amount: 0.4 }}
+            viewport={{ once: true, amount: 0.1 }}
           >
             {/* Image Section */}
             <motion.div

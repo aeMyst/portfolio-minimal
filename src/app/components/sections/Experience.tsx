@@ -20,7 +20,7 @@ type ExperienceItem = {
 const EXPERIENCES: ExperienceItem[] = [
   {
     year: "May 2025–Present",
-    role: "Technology Leader",
+    role: "Co-Director of Operations",
     org: "DSMLC (UCalgary)",
     desc: "Led sprint discussions. Responsible for website maintenance and improvements. Developed internal systems for club events.",
   },

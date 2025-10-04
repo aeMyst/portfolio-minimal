@@ -13,6 +13,21 @@ import {
 const ProjectsSection = () => {
   const projects = [
     {
+      name: "DSMLC Portal & BI Report",
+      description:
+        "Data Science and Machine Learning Club dashboarding tool connected to Databricks to create visual reports of club events and members",
+      github: "https://github.com/aeMyst/PetPals",
+      image: "/projects/databricks.jpg",
+      technologies: [
+        "TypeScript",
+        "PySpark",
+        "Next.js",
+        "Power BI",
+        "Databricks",
+        "Supabase",
+      ],
+    },
+    {
       name: "PetPals",
       description:
         "2nd Place Hackathon Winner that focuses on building a platform for anonymous blogging to address inclusivity",
@@ -84,14 +99,6 @@ const ProjectsSection = () => {
       github: "https://github.com/aeMyst/Celebrity-Compatibility-Test",
       image: "/projects/testapp.png",
       technologies: ["Java", "JavaFX", "CSS"],
-    },
-    {
-      name: "Wordle Console Replica",
-      description:
-        "A console-based Python program that replicates the Wordle game experience.",
-      github: "https://github.com/aeMyst/Wordle",
-      image: "/projects/wordle.png",
-      technologies: ["Python"],
     },
   ];
 

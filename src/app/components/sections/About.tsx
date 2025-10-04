@@ -27,6 +27,8 @@ import {
   SiNextdotjs,
   SiPandas,
   SiNumpy,
+  SiDatabricks,
+  SiSupabase,
 } from "react-icons/si";
 import { IoLogoJavascript, IoLogoFirebase } from "react-icons/io5";
 import { BsFiletypeSql } from "react-icons/bs";
@@ -323,6 +325,20 @@ const AboutSection = () => {
                   >
                     <FaFigma className="text-4xl mb-2" />
                     <h4 className="text-white">Figma</h4>
+                  </motion.div>
+                  <motion.div
+                    className="flex flex-col items-center"
+                    variants={pillItem}
+                  >
+                    <SiDatabricks className="text-4xl mb-2" />
+                    <h4 className="text-white">Databricks</h4>
+                  </motion.div>
+                  <motion.div
+                    className="flex flex-col items-center"
+                    variants={pillItem}
+                  >
+                    <SiSupabase className="text-4xl mb-2" />
+                    <h4 className="text-white">Supabase</h4>
                   </motion.div>
                 </motion.div>
               </motion.div>

@@ -35,6 +35,21 @@ export default function Hero3DModel() {
           <Model />
         </Suspense>
       </Canvas>
+
+      {/* License Credits*/}
+      <div className="relative group inline-block">
+        <a className="text-sm cursor-pointer underline">Hover for Credits</a>
+
+        <div
+          className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 hidden group-hover:block
+                  bg-base-100 text-white text-xs rounded-lg p-4 z-20 
+                  max-w-md w-[320px] whitespace-pre-line text-left shadow-lg"
+        >
+          {
+            'This work is based on "Magic Crystal B&W"\n\n(sketchfab.com/3d-models/magic-crystal-bw-871e40e7271d4db28fe466bf32598d8a)\n\nby Toni García Vilche (sketchfab.com/zul_gv)\n\nlicensed under CC-BY-4.0\n(creativecommons.org/licenses/by/4.0/)'
+          }
+        </div>
+      </div>
     </div>
   );
 }

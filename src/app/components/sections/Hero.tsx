@@ -31,8 +31,8 @@ const HeroSection = () => {
           <TypewriterLine
             phrases={[
               "Computer Science Student",
-              "Aspiring Data Analyst",
-              "Passionate Software Developer",
+              "Aspiring Data Professional ",
+              "Junior Web Developer",
             ]}
             className="text-xl text-white mt-2"
             typeSpeed={40}

@@ -9,8 +9,8 @@ const SocialLinks = () => {
         href="https://github.com/aeMyst"
         target="_blank"
         rel="noopener noreferrer"
-        className="btn btn-circle w-12 h-12 transition duration-300 hover:scale-110 hover:brightness-125"
-        style={{ backgroundColor: "#181717", color: "white" }}
+        className="btn btn-circle w-12 h-12 transition  duration-300 hover:scale-110 hover:brightness-125"
+        style={{ backgroundColor: "transparent", color: "white" }}
       >
         <FaGithub className="text-3xl" />
       </a>
@@ -19,7 +19,7 @@ const SocialLinks = () => {
         target="_blank"
         rel="noopener noreferrer"
         className="btn btn-circle w-12 h-12 transition duration-300 hover:scale-110 hover:brightness-125"
-        style={{ backgroundColor: "#0077B5", color: "white" }}
+        style={{ backgroundColor: "transparent", color: "white" }}
       >
         <FaLinkedin className="text-3xl" />
       </a>
@@ -28,7 +28,7 @@ const SocialLinks = () => {
         target="_blank"
         rel="noopener noreferrer"
         className="btn btn-circle w-12 h-12 transition duration-300 hover:scale-110 hover:brightness-125"
-        style={{ backgroundColor: "#E1306C", color: "white" }}
+        style={{ backgroundColor: "transparent", color: "white" }}
       >
         <FaInstagram className="text-3xl" />
       </a>

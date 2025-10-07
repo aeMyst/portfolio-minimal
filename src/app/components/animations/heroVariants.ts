@@ -4,7 +4,7 @@ export const heroStagger: Variants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: { staggerChildren: 0.12, delayChildren: 0.05 },
+    transition: { staggerChildren: 0.10, delayChildren: 0.05 },
   },
 };
 
@@ -14,7 +14,7 @@ export const bubbleIn: Variants = {
     opacity: 1,
     scale: 1,
     y: 0,
-    transition: { duration: 0.45, ease: "easeOut" as const },
+    transition: { duration: 0.1, ease: "easeOut" as const },
   },
 };
 

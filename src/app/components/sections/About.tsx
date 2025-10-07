@@ -83,15 +83,15 @@ const AboutSection = () => {
             families, giving campus tours that highlight my favorite spots, and
             helping organize events for the Computer Science Department such as
             orientations and student activities. In addition, I serve as the
-            Tech Executive for the Data Science and Machine Learning Club, where
-            I design and manage tools that keep our operations running smoothly.
-            I love bringing ideas to life; there&apos;s nothing more rewarding
-            than turning a concept into a polished, useful final product. I
-            believe data is essential for making well-informed, justifiable
-            decisions, and I&apos;m excited by future opportunities to combine
-            my analytical skills with my web development expertise to create
-            intuitive dashboards that can be easily understood by both
-            professionals and non-professionals alike.
+            Co-Director of Operations for the Data Science and Machine Learning
+            Club, where I design and manage tools that keep our operations
+            running smoothly. I love bringing ideas to life; there&apos;s
+            nothing more rewarding than turning a concept into a polished,
+            useful final product. I believe data is essential for making
+            well-informed, justifiable decisions, and I&apos;m excited by future
+            opportunities to combine my analytical skills with my web
+            development expertise to create intuitive dashboards that can be
+            easily understood by both professionals and non-professionals alike.
           </motion.p>
 
           <motion.p className="text-white mb-4" variants={slideInLeft}>

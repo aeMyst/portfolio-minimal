@@ -21,7 +21,7 @@ const EXPERIENCES: ExperienceItem[] = [
   {
     year: "May 2025–Present",
     role: "Co-Director of Operations",
-    org: "DSMLC (UCalgary)",
+    org: "DSMLC",
     desc: "Led sprint discussions. Responsible for website maintenance and improvements. Developed internal systems for club events.",
   },
   {

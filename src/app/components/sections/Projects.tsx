@@ -17,7 +17,7 @@ const ProjectsSection = () => {
       description:
         "Data Science and Machine Learning Club dashboarding tool connected to Databricks to create visual reports of club events and members",
       github: "https://github.com/aeMyst/PetPals",
-      image: "/projects/databricks.jpg",
+      image: "/projects/dashboard.png",
       technologies: [
         "TypeScript",
         "PySpark",

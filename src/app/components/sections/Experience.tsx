@@ -19,6 +19,12 @@ type ExperienceItem = {
 
 const EXPERIENCES: ExperienceItem[] = [
   {
+    year: "May 2026–Future",
+    role: "Data Analyst Intern",
+    org: "Enbridge",
+    desc: "Incoming...",
+  },
+  {
     year: "May 2025–Present",
     role: "Co-Director of Operations",
     org: "DSMLC",

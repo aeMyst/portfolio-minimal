@@ -5,7 +5,7 @@ export interface SkillGroup {
 
 export interface Project {
   href: string
-  imgSrc: string
+  imgKey: string  // matches the key in PROJECT_IMAGES in Projects.tsx
   imgAlt: string
   tech: string[]
   title: string
@@ -38,87 +38,74 @@ export const skillGroups: SkillGroup[] = [
 
 export const projects: Project[] = [
   {
-    href: 'https://github.com/aeMyst/PetPals',
-    imgSrc: 'https://petertran-portfolio.com/projects/dashboard.png',
-    imgAlt: 'DSMLC Portal',
-    tech: ['TypeScript', 'PySpark', 'Power BI', 'Databricks'],
-    title: 'DSMLC Portal & BI Report',
-    desc: 'Data Science and Machine Learning Club dashboarding tool connected to Databricks — creating visual reports of club events and member analytics for leadership decisions.',
+    href:   'https://csgit.ucalgary.ca/ryan.wong1/seng513-202601-pg-3',
+    imgKey: 'campusync',
+    imgAlt: 'campusync',
+    tech:   ['Spring Boot', 'Docker', 'SeaweedFS', "React", "TailwindCSS", "PGAdmin" ],
+    title:  'CampuSync',
+    desc:   'CampuSync is a campus club and event management platform. Students can discover clubs, RSVP to events, and manage personal calendars. ',
     featured: true,
   },
   {
-    href: 'https://github.com/aeMyst/PetPals',
-    imgSrc: 'https://petertran-portfolio.com/projects/petpals.png',
+    href:    'https://github.com/aeMyst/DSMLCDashboard',
+    imgKey:  'dashboard',
+    imgAlt:  'DSMLC Portal',
+    tech:    ['Next.js', 'PySpark', 'Power BI', 'Databricks'],
+    title:   'DSMLC Portal & BI Report',
+    desc:    'Data Science and Machine Learning Club dashboarding tool connected to Databricks — creating visual reports of club events and member analytics for leadership decisions.',
+  },
+  {
+    href:   'https://github.com/aeMyst/PetPals',
+    imgKey: 'petpals',
     imgAlt: 'PetPals',
-    tech: ['React', 'Firebase', 'Gemini API'],
-    title: 'PetPals',
-    desc: '2nd Place Hackathon Winner — anonymous blogging platform built to address inclusivity and community support.',
+    tech:   ['React', 'Firebase', 'Gemini API'],
+    title:  'PetPals',
+    desc:   '2nd Place Hackathon Winner — anonymous blogging platform built to address inclusivity and community support.',
   },
   {
-    href: 'https://github.com/aeMyst/TableTalk',
-    imgSrc: 'https://petertran-portfolio.com/projects/tabletalk.png',
-    imgAlt: 'TableTalk',
-    tech: ['React', 'TailwindCSS'],
-    title: 'TableTalk',
-    desc: 'Community-based board game website built around HCI principles — thoughtful UX and inclusive design at its core.',
-  },
-  {
-    href: 'https://github.com/aeMyst/RevRentals',
-    imgSrc: 'https://petertran-portfolio.com/projects/revrentals.png',
+    href:   'https://github.com/aeMyst/RevRentals',
+    imgKey: 'revrentals',
     imgAlt: 'RevRentals',
-    tech: ['Flutter', 'Django', 'MySQL'],
-    title: 'RevRentals Marketplace',
-    desc: 'Mobile app fostering a peer-to-peer marketplace for renting motorcycles — combining a personal passion with technical skill.',
+    tech:   ['Flutter', 'Django', 'MySQL'],
+    title:  'RevRentals Marketplace',
+    desc:   'Mobile app fostering a peer-to-peer marketplace for renting motorcycles — combining a personal passion with technical skill.',
   },
   {
-    href: 'https://github.com/aeMyst/ai-chef',
-    imgSrc: 'https://petertran-portfolio.com/projects/chefai.png',
+    href:   'https://github.com/aeMyst/ai-chef',
+    imgKey: 'chefai',
     imgAlt: 'ChefAI',
-    tech: ['Python', 'Flask', 'OpenAI API'],
-    title: 'ChefAI',
-    desc: 'Recipe generator that provides tailored meal ideas based on expiring fridge ingredients — reducing food waste intelligently.',
-  },
-  {
-    href: 'https://github.com/aeMyst/Minigame-Portal',
-    imgSrc: 'https://petertran-portfolio.com/projects/gameportal.png',
-    imgAlt: 'Minigame Portal',
-    tech: ['Java', 'JavaFX'],
-    title: 'Minigame Online Portal',
-    desc: 'Multiplayer platform simulating matchmaking in chess, tic-tac-toe, and Connect4 — built from scratch with custom networking.',
+    tech:   ['Python', 'Flask', 'OpenAI API'],
+    title:  'ChefAI',
+    desc:   'Recipe generator that provides tailored meal ideas based on expiring fridge ingredients — reducing food waste intelligently.',
   },
 ]
 
 export const experienceItems: ExperienceItem[] = [
   {
-    date: 'May 2026 — Present',
-    role: 'Data Analyst Intern',
-    company: 'Enbridge',
-    desc: 'Incoming data analyst role — leveraging analytical skills to support data-driven decision-making at one of North America\'s leading energy infrastructure companies.',
+    date:     'May 2026 — Present',
+    role:     'Data Analyst Intern',
+    company:  'Enbridge',
+    desc:     "Incoming data analyst role — leveraging analytical skills to support data-driven decision-making at one of North America's leading energy infrastructure companies.",
     upcoming: true,
   },
   {
-    date: 'May 2025 — Present',
-    role: 'Co-Director of Operations',
+    date:    'May 2025 — Present',
+    role:    'Co-Director of Operations',
     company: 'Data Science & Machine Learning Club · University of Calgary',
-    desc: 'Led sprint discussions and team coordination. Responsible for website maintenance and continuous improvements. Developed internal systems and tooling for club events and member management.',
+    desc:    'Led sprint discussions and team coordination. Responsible for website maintenance and continuous improvements. Developed internal systems and tooling for club events and member management.',
   },
   {
-    date: 'Sep 2024 — Feb 2025',
-    role: 'Server / Bartender',
+    date:    'Sep 2024 — Feb 2025',
+    role:    'Server / Bartender',
     company: "Roy's Korean Kitchen",
-    desc: "Compiled end-of-day reports and analyzed relevant sales data, delivering concise summaries to supervisors to support operational decisions.",
-  },
-  {
-    date: 'Jun 2022 — Feb 2024',
-    role: 'Server',
-    company: 'Baekjeong Korean BBQ House',
-    desc: 'Conducted quality checks, managed inventory restocking, and documented shift tasks to ensure seamless team handoffs and operational continuity.',
+    desc:    "Compiled end-of-day reports and analyzed relevant sales data, delivering concise summaries to supervisors to support operational decisions.",
   },
 ]
 
 export const courses = [
   'Database Management Systems',
   'Scalable Data Analytics',
+  'Thinking with Data',
   'Web-Based Systems',
   'Human Computer Interactions',
   'Machine Learning & AI',

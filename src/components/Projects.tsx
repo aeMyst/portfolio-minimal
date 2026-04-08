@@ -1,17 +1,40 @@
 import { useState } from "react";
-import { projects } from "../data/Content.ts";
+import { projects } from "../data/Content";
 
-function ProjectImage({ src, alt }: { src: string; alt: string }) {
+import imgDashboard from "../assets/projects/dsmlcdashboard.png";
+import imgPetpals from "../assets/projects/petpals.png";
+import imgRevrentals from "../assets/projects/revrentals.png";
+import imgChefai from "../assets/projects/chefai.png";
+import imgcampusync from "../assets/projects/campusync.png";
+
+const PROJECT_IMAGES: Record<string, string> = {
+  dashboard: imgDashboard,
+  petpals: imgPetpals,
+  revrentals: imgRevrentals,
+  chefai: imgChefai,
+  campusync: imgcampusync,
+};
+
+function ProjectImage({ imgKey, alt }: { imgKey: string; alt: string }) {
   const [failed, setFailed] = useState(false);
-  if (failed) {
+  const src = PROJECT_IMAGES[imgKey];
+
+  if (failed || !src) {
     return (
       <div className="project-img-placeholder">
         <span>{alt}</span>
       </div>
     );
   }
+
   return (
-    <img src={src} alt={alt} loading="lazy" onError={() => setFailed(true)} />
+    <img
+      src={src}
+      alt={alt}
+      loading="lazy"
+      decoding="async"
+      onError={() => setFailed(true)}
+    />
   );
 }
 
@@ -33,7 +56,7 @@ export default function Projects() {
             className={`project-card reveal${p.featured ? " featured" : ""}`}
           >
             <div className="project-img">
-              <ProjectImage src={p.imgSrc} alt={p.imgAlt} />
+              <ProjectImage imgKey={p.imgKey} alt={p.imgAlt} />
             </div>
             <div className="project-body">
               <div className="project-tech-row">

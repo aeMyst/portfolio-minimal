@@ -2,6 +2,7 @@ import { ThemeProvider } from "./context/ThemeContext";
 import { useGsapReveal } from "./hooks/Usegsapreveal";
 import Cursor from "./components/Cursor";
 import Nav from "./components/Nav";
+import ScrollProgress from "./components/Scrollprogress";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import SkillsEducation from "./components/Skillseducation";
@@ -15,6 +16,7 @@ function Portfolio() {
   return (
     <>
       <Cursor />
+      <ScrollProgress />
       <Nav />
       <Hero />
 

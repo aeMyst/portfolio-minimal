@@ -121,6 +121,25 @@ body:has(button:hover) .cursor-ring {
   border-color: rgba(var(--accent-rgb), 0.8);
 }
 
+/* ── SCROLL PROGRESS BAR ─────────────────────────────────── */
+.scroll-progress-track {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(var(--cream-rgb), 0.08);
+  z-index: 9999;
+  pointer-events: none;
+}
+ 
+.scroll-progress-bar {
+  height: 100%;
+  background: var(--cream);
+  transition: width 0.05s linear;
+  box-shadow: 0 0 6px rgba(var(--cream-rgb), 0.5);
+}
+
 /* ── NAV ─────────────────────────────────────────────────── */
 nav {
   position: fixed;

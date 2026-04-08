@@ -18,35 +18,29 @@ function Portfolio() {
       <Nav />
       <Hero />
 
-      <section id="about" style={{ padding: 0, background: "var(--navy)" }}>
+      <section id="about" style={{ background: "var(--navy)" }}>
         <About />
       </section>
 
       <div className="divider" />
 
-      <section
-        id="skills"
-        style={{ padding: 0, background: "var(--navy-mid)" }}
-      >
+      <section id="skills" style={{ background: "var(--navy-mid)" }}>
         <SkillsEducation />
       </section>
 
       <div className="divider" />
 
-      <section id="projects" style={{ padding: 0, background: "var(--navy)" }}>
+      <section id="projects" style={{ background: "var(--navy)" }}>
         <Projects />
       </section>
 
       <div className="divider" />
 
-      <section
-        id="experience"
-        style={{ padding: 0, background: "var(--navy-mid)" }}
-      >
+      <section id="experience" style={{ background: "var(--navy-mid)" }}>
         <Experience />
       </section>
 
-      <section id="contact" style={{ padding: 0, background: "var(--navy)" }}>
+      <section id="contact" style={{ background: "var(--navy)" }}>
         <Contact />
       </section>
 

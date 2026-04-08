@@ -31,15 +31,6 @@
   --text-muted:  rgba(232, 242, 250, 0.55);
 }
 
-/* ── SMOOTH TRANSITION ON THEME SWAP ────────────────────── */
-body, nav, section, footer, .project-card,
-.timeline-item, .contact-inner {
-  transition:
-    background-color 0.5s ease,
-    border-color     0.4s ease,
-    color            0.4s ease;
-}
-
 /* ── RESET ───────────────────────────────────────────────── */
 *,
 *::before,
@@ -141,7 +132,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  transition: background 0.4s, backdrop-filter 0.4s, border-color 0.4s;
+  transition: background 0.4s, backdrop-filter 0.4s;
 }
 
 nav.scrolled {
@@ -220,8 +211,7 @@ nav.scrolled {
   overflow: hidden;
 }
 
-/* Gradient fade at the bottom of the hero that dissolves into
-   the About section's --navy background, removing the hard cut */
+/* Gradient fade */
 #hero::after {
   content: '';
   position: absolute;
@@ -232,8 +222,8 @@ nav.scrolled {
   background: linear-gradient(
     to bottom,
     transparent 0%,
-    rgba(var(--navy-rgb), 0.5) 40%,
-    rgba(var(--navy-rgb), 0.85) 65%,
+    rgba(var(--navy-rgb), 0.5) 25%,
+    rgba(var(--navy-rgb), 0.85) 50%,
     var(--navy) 100%
   );
   z-index: 5;
@@ -396,8 +386,15 @@ section {
 }
 
 .section-pad {
-  padding-top: 7rem;
-  padding-bottom: 7rem;
+  padding-top: 4rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 901px) {
+  .section-pad {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
 }
 
 .section-label {
@@ -790,8 +787,8 @@ section {
 }
 
 .edu-logo {
-  width: 80px;
-  height: 80px;
+  width: 150px;
+  height: 150px;
   border-radius: 8px;
   overflow: hidden;
   background: white;
@@ -870,6 +867,10 @@ section {
   border-top: 1px solid rgba(var(--cream-rgb), 0.07);
   position: relative;
   overflow: hidden;
+}
+
+#contact {
+  padding: 0;
 }
 
 .contact-glow {
@@ -994,10 +995,7 @@ footer {
 }
 
 /* ── SCROLL REVEAL BASE ──────────────────────────────────── */
-/* GSAP's fromTo() sets opacity:0 / y:40 as the initial state.      */
-/* CSS does NOT set opacity:0 here — that caused elements to be      */
-/* permanently hidden if GSAP failed to find/animate them.           */
-/* will-change hints the browser to composite these elements.        */
+
 .reveal {
   will-change: opacity, transform;
 }
@@ -1086,14 +1084,48 @@ footer {
 
 /* ── RESPONSIVE ──────────────────────────────────────────── */
 @media (max-width: 900px) {
+  /* ── Global spacing ── */
+  section { padding: 4rem 0 5rem; }
+  .container { padding: 0 1.5rem; }
+ 
+  /* ── Nav ── */
   nav { padding: 1.25rem 1.5rem; }
   .nav-links { display: none; }
-  .container { padding: 0 1.5rem; }
-  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .skills-edu-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .skills-grid { grid-template-columns: 1fr; }
-  .projects-grid { grid-template-columns: 1fr; }
+ 
+  /* ── About ── */
+  .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .about-photos {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: none;
+    grid-template-rows: auto auto;
+    height: auto;
+    gap: 0.6rem;
+  }
+  .photo-bike   { grid-area: unset; grid-column: 1 / -1; height: 220px; }
+  .photo-dsmlc  { grid-area: unset; height: 160px; }
+  .photo-bottom { grid-column: 1 / -1; grid-template-columns: 1fr 1fr; height: 160px; }
+  .photo-placeholder { height: 160px; }
+ 
+  /* ── Skills & Education ── */
+  .skills-edu-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .skills-stack { gap: 1rem; }
+  .skill-group { padding: 1.25rem; }
+  .edu-card-inline { padding: 1.25rem; }
+ 
+  /* ── Projects ── */
+  .projects-grid { grid-template-columns: 1fr; gap: 1.25rem; }
   .project-card.featured { grid-template-columns: 1fr; }
   .project-card.featured .project-img { height: 220px; }
-  footer { flex-direction: column; gap: 1rem; text-align: center; }
+  .project-img { height: 180px; }
+  .project-body { padding: 1.25rem; }
+ 
+  /* ── Education card (standalone) ── */
+  .edu-card { grid-template-columns: 1fr; gap: 1.5rem; padding: 1.5rem; }
+  .edu-logo { width: 60px; height: 60px; }
+ 
+  /* ── Contact ── */
+  .contact-title { font-size: clamp(2rem, 8vw, 3rem); }
+ 
+  /* ── Footer ── */
+  footer { flex-direction: column; gap: 1rem; text-align: center; padding: 1.5rem; }
 }

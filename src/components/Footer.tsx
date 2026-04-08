@@ -1,7 +1,9 @@
 export default function Footer() {
+  const year = new Date().getFullYear();
+
   return (
     <footer>
-      <p className="footer-copy">Peter Tran © 2025 — All rights reserved</p>
+      <p className="footer-copy">Peter Tran © {year} — All rights reserved</p>
       <div className="footer-links">
         <a href="https://github.com/aeMyst" target="_blank" rel="noreferrer">
           GitHub

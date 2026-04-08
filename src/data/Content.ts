@@ -5,7 +5,7 @@ export interface SkillGroup {
 
 export interface Project {
   href: string
-  imgKey: string  // matches the key in PROJECT_IMAGES in Projects.tsx
+  imgKey: string 
   imgAlt: string
   tech: string[]
   title: string
@@ -28,11 +28,11 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     title: 'Frameworks & Libraries',
-    tags: ['React', 'Next.js', 'Pandas', 'NumPy', 'Flask', 'Express.js', 'PySpark'],
+    tags: ['React', 'Next.js', 'Pandas', 'NumPy', 'Flask', 'Express.js', 'PySpark', 'TailwindCSS', 'Spring Boot'],
   },
   {
     title: 'Tools & Platforms',
-    tags: ['Power BI', 'Databricks', 'Supabase', 'Firebase', 'Figma', 'Django', 'Node.js'],
+    tags: ['Power BI', 'Databricks', 'Supabase', 'Firebase', 'Figma', 'Django', 'Node.js', 'Docker', 'Git', 'AWS S3'],
   },
 ]
 

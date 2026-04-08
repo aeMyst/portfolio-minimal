@@ -1,4 +1,4 @@
-/* ── FONTS (theme-independent) ───────────────────────────── */
+/* ── FONTS ───────────────────────────── */
 :root {
   --font-display: 'Syne', sans-serif;
   --font-serif:   'DM Serif Display', serif;
@@ -141,7 +141,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  transition: background 0.4s, backdrop-filter 0.4s, border-color 0.4s;
+  transition: background 0.4s, backdrop-filter 0.4s;
 }
 
 nav.scrolled {

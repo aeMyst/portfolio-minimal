@@ -6,7 +6,7 @@ export function useGsapReveal() {
   useEffect(() => {
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-    // If user prefers reduced motion, make everything visible immediately
+    // reduced motion, make everything visible immediately
     if (prefersReduced) {
       document.querySelectorAll<HTMLElement>('.reveal').forEach((el) => {
         el.style.opacity = '1'
@@ -15,8 +15,6 @@ export function useGsapReveal() {
       return
     }
 
-    // ctx scopes all GSAP animations — ctx.revert() kills everything cleanly
-    // This is the correct pattern for React StrictMode double-invoke
     const ctx = gsap.context(() => {
 
       // ── Generic .reveal elements ──────────────────────────────
@@ -100,8 +98,7 @@ export function useGsapReveal() {
       ScrollTrigger.refresh()
     })
 
-    // This is the ONLY cleanup — runs on unmount and on StrictMode's
-    // second unmount/remount cycle, killing all triggers cleanly
+    // clean up
     return () => ctx.revert()
   }, [])
 }

@@ -38,7 +38,7 @@ export default function Hero() {
       <canvas id="webGLApp" ref={canvasRef} />
 
       <div className="hero-content">
-        <p className="hero-eyebrow">Data Professional &amp; Developer</p>
+        <p className="hero-eyebrow">Data Professional &amp; Junior Developer</p>
         <h1 className="hero-name">
           Peter
           <br />

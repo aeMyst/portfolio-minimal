@@ -7,7 +7,9 @@ export function useGsapReveal() {
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
     if (prefersReduced) {
-      document.querySelectorAll<HTMLElement>('.reveal').forEach((el) => {
+      document.querySelectorAll<HTMLElement>(
+        '.reveal, .about-para, .about-photos-reveal'
+      ).forEach((el) => {
         el.style.opacity = '1'
         el.style.transform = 'none'
       })
@@ -16,7 +18,7 @@ export function useGsapReveal() {
 
     const ctx = gsap.context(() => {
 
-      // ── Scroll reveals (original: top 85%, duration 0.9, power3.out) ──
+      // ── Generic reveals ───────────────────────────────────────────────
       gsap.utils.toArray<HTMLElement>('.reveal').forEach((el) => {
         gsap.fromTo(
           el,
@@ -35,7 +37,50 @@ export function useGsapReveal() {
         )
       })
 
-      // ── Timeline dots (original: scale 0→1, back.out(2), top 88%) ──────
+      // ── About — text paragraphs stagger in from left ──────────────────
+      gsap.utils.toArray<HTMLElement>('.about-para').forEach((para, i) => {
+        gsap.fromTo(
+          para,
+          { opacity: 0, x: -40 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.8,
+            ease: 'power3.out',
+            delay: i * 0.15,
+            scrollTrigger: {
+              trigger: para,
+              start: 'top 88%',
+              toggleActions: 'play none none none',
+            },
+          }
+        )
+      })
+
+      // ── About — photo collage: each image fades + scales up with stagger
+      const photosContainer = document.querySelector<HTMLElement>('.about-photos-reveal')
+      if (photosContainer) {
+        const photos = photosContainer.querySelectorAll<HTMLElement>('.photo-placeholder')
+        gsap.fromTo(
+          photos,
+          { opacity: 0, scale: 0.92, y: 20 },
+          {
+            opacity: 1,
+            scale: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power3.out',
+            stagger: 0.15,
+            scrollTrigger: {
+              trigger: photosContainer,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+            },
+          }
+        )
+      }
+
+      // ── Timeline dots ─────────────────────────────────────────────────
       gsap.utils.toArray<HTMLElement>('.timeline-dot').forEach((dot) => {
         gsap.fromTo(
           dot,
@@ -53,59 +98,88 @@ export function useGsapReveal() {
         )
       })
 
-      // ── Project cards (original: opacity 0, y 50, stagger i * 0.1) ─────
-      gsap.utils.toArray<HTMLElement>('.project-card').forEach((card, i) => {
+      // ── Skill groups — stagger scale + fade up per card ──────────────
+      const skillsContainer = document.querySelector<HTMLElement>('.skills-stack')
+      if (skillsContainer) {
+        const groups = skillsContainer.querySelectorAll<HTMLElement>('.skill-group')
         gsap.fromTo(
-          card,
-          { opacity: 0, y: 50 },
+          groups,
+          { opacity: 0, scale: 0.94, y: 24 },
           {
             opacity: 1,
+            scale: 1,
             y: 0,
             duration: 0.7,
             ease: 'power3.out',
-            delay: i * 0.1,
+            stagger: 0.12,
             scrollTrigger: {
-              trigger: card,
+              trigger: skillsContainer,
               start: 'top 85%',
               toggleActions: 'play none none none',
             },
           }
         )
-      })
+      }
 
-      // ── Skill groups stagger (not in original — keeping as enhancement) ─
-      gsap.utils.toArray<HTMLElement>('.skill-group').forEach((group, i) => {
+      // ── Education card — scale up from slightly below ─────────────────
+      const eduContainer = document.querySelector<HTMLElement>('.edu-card-inline')
+      if (eduContainer) {
         gsap.fromTo(
-          group,
-          { opacity: 0, y: 30 },
+          eduContainer,
+          { opacity: 0, scale: 0.94, y: 24 },
           {
             opacity: 1,
+            scale: 1,
             y: 0,
-            duration: 0.6,
+            duration: 0.7,
             ease: 'power3.out',
-            delay: i * 0.08,
             scrollTrigger: {
-              trigger: group,
+              trigger: eduContainer,
               start: 'top 85%',
               toggleActions: 'play none none none',
             },
           }
         )
-      })
+      }
 
-      // ── Education card (not in original — matches skill group style) ────
-      gsap.utils.toArray<HTMLElement>('.edu-card-inline').forEach((card) => {
+      // ── Project cards — featured first, then pairs stagger in ─────────
+      const featured = document.querySelector<HTMLElement>('.project-card.featured')
+      if (featured) {
+        gsap.fromTo(
+          featured,
+          { opacity: 0, scale: 0.95, y: 30 },
+          {
+            opacity: 1,
+            scale: 1,
+            y: 0,
+            duration: 0.85,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: featured,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+            },
+          }
+        )
+      }
+
+      const regularCards = gsap.utils.toArray<HTMLElement>(
+        '.project-card:not(.featured)'
+      )
+      regularCards.forEach((card, i) => {
         gsap.fromTo(
           card,
-          { opacity: 0, y: 30 },
+          { opacity: 0, scale: 0.94, y: 28 },
           {
             opacity: 1,
+            scale: 1,
             y: 0,
-            duration: 0.6,
+            duration: 0.7,
             ease: 'power3.out',
+            delay: (i % 2) * 0.12,
             scrollTrigger: {
               trigger: card,
-              start: 'top 85%',
+              start: 'top 88%',
               toggleActions: 'play none none none',
             },
           }

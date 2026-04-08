@@ -13,22 +13,22 @@ export default function About() {
       </h2>
 
       <div className="about-grid">
-        <div className="about-text reveal">
-          <p>
+        <div className="about-text">
+          <p className="about-para">
             I'm a passionate <strong>Computer Science student</strong> at the
             University of Calgary with aspirations to become a professional Data
             Analyst and Web Developer. I love bringing ideas to life — there's
-            nothing more rewarding than turning a concept into a polished and
+            nothing more rewarding than turning a concept into a polished,
             useful final product.
           </p>
-          <p>
+          <p className="about-para">
             As <strong>Co-Director of Operations</strong> for the Data Science
             and Machine Learning Club, I design and manage tools that keep
             operations running smoothly. As a Prospective Student Engagement
             Ambassador, I help welcome new students and support department
             events.
           </p>
-          <p>
+          <p className="about-para">
             Outside of work, I'm an avid <strong>motorcyclist</strong>, a
             traveler who's visited Mexico, the US, and counting — with Singapore
             and China next on the list — and a gamer who believes technology has
@@ -36,38 +36,35 @@ export default function About() {
           </p>
         </div>
 
-        <div className="about-photos reveal">
+        <div className="about-photos about-photos-reveal">
           <div className="photo-placeholder">
             <img
               src={peter1}
-              alt="peter1"
+              alt="Two motorcycles on a rooftop parkade at sunset in Calgary"
               className="photo-img"
               loading="lazy"
-              onError={(e) => {
-                (e.currentTarget as HTMLImageElement).style.display = "none";
-              }}
+              decoding="async"
+              style={{ objectPosition: "center center" }}
             />
           </div>
           <div className="photo-placeholder">
             <img
               src={family}
-              alt="family"
+              alt="Peter at DSMLC event"
               className="photo-img"
               loading="lazy"
-              onError={(e) => {
-                (e.currentTarget as HTMLImageElement).style.display = "none";
-              }}
+              decoding="async"
+              style={{ objectPosition: "center 15%" }}
             />
           </div>
           <div className="photo-placeholder">
             <img
               src={bike}
-              alt="bike"
+              alt="Peter with family in San Diego"
               className="photo-img"
               loading="lazy"
-              onError={(e) => {
-                (e.currentTarget as HTMLImageElement).style.display = "none";
-              }}
+              decoding="async"
+              style={{ objectPosition: "center 10%" }}
             />
           </div>
         </div>

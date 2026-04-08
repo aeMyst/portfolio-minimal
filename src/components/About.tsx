@@ -1,3 +1,7 @@
+import peter1 from "../assets/aboutme/peter_tran_1.jpg";
+import family from "../assets/aboutme/family.jpg";
+import bike from "../assets/aboutme/bike.jpg";
+
 export default function About() {
   return (
     <div className="container section-pad">
@@ -14,7 +18,7 @@ export default function About() {
             I'm a passionate <strong>Computer Science student</strong> at the
             University of Calgary with aspirations to become a professional Data
             Analyst and Web Developer. I love bringing ideas to life — there's
-            nothing more rewarding than turning a concept into a polished,
+            nothing more rewarding than turning a concept into a polished and
             useful final product.
           </p>
           <p>
@@ -35,8 +39,8 @@ export default function About() {
         <div className="about-photos reveal">
           <div className="photo-placeholder">
             <img
-              src="https://petertran-portfolio.com/assets/motorcycle.jpg"
-              alt="Peter on motorcycle"
+              src={peter1}
+              alt="peter1"
               className="photo-img"
               loading="lazy"
               onError={(e) => {
@@ -46,8 +50,8 @@ export default function About() {
           </div>
           <div className="photo-placeholder">
             <img
-              src="https://petertran-portfolio.com/assets/friends.jpg"
-              alt="Friends"
+              src={family}
+              alt="family"
               className="photo-img"
               loading="lazy"
               onError={(e) => {
@@ -57,8 +61,8 @@ export default function About() {
           </div>
           <div className="photo-placeholder">
             <img
-              src="https://petertran-portfolio.com/assets/travel.jpg"
-              alt="Travel"
+              src={bike}
+              alt="bike"
               className="photo-img"
               loading="lazy"
               onError={(e) => {

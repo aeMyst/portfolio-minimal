@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { skillGroups, courses } from "../data/Content";
+import uofc from "../assets/uofc.jpg";
 
 export default function SkillsEducation() {
   const [imgFailed, setImgFailed] = useState(false);
@@ -42,7 +43,7 @@ export default function SkillsEducation() {
                 <span className="edu-logo-fallback">U of C</span>
               ) : (
                 <img
-                  src="https://petertran-portfolio.com/assets/uofc.jpg"
+                  src={uofc}
                   alt="University of Calgary logo"
                   onError={() => setImgFailed(true)}
                 />

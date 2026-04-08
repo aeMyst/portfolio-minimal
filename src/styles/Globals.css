@@ -1063,6 +1063,27 @@ footer {
   gap: 0.25rem;
 }
 
+.project-img {
+  aspect-ratio: 16 / 9;
+  height: auto;
+}
+
+.project-card.featured .project-img {
+  aspect-ratio: 4 / 3;
+  height: auto;
+  min-height: 280px;
+}
+
+.about-photos .photo-placeholder:first-child {
+  aspect-ratio: 21 / 9;
+  height: auto;
+}
+
+.about-photos .photo-placeholder:not(:first-child) {
+  aspect-ratio: 4 / 3;
+  height: auto;
+}
+
 /* ── RESPONSIVE ──────────────────────────────────────────── */
 @media (max-width: 900px) {
   nav { padding: 1.25rem 1.5rem; }

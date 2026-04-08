@@ -3,9 +3,9 @@ export default function Contact() {
     <div className="contact-inner">
       <div className="contact-glow" />
       <h2 className="contact-title reveal">
-        Let's build something
+        Reachout, let's
         <br />
-        <em>together.</em>
+        <em>connect.</em>
       </h2>
       <p className="contact-sub reveal">
         Open to internships, collaborations, and interesting conversations.

@@ -5,7 +5,7 @@ import imgDashboard from "../assets/projects/dsmlcdashboard.png";
 import imgPetpals from "../assets/projects/petpals.png";
 import imgRevrentals from "../assets/projects/revrentals.png";
 import imgcampusync from "../assets/projects/campusync.png";
-import imgfleurish from "../assets/projects/fleurish.png";
+import imgfleurish from "../assets/projects/Fleurish.png";
 
 const PROJECT_IMAGES: Record<string, string> = {
   dashboard: imgDashboard,

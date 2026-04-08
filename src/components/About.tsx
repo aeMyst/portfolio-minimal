@@ -40,7 +40,7 @@ export default function About() {
           <div className="photo-placeholder">
             <img
               src={peter1}
-              alt="Two motorcycles on a rooftop parkade at sunset in Calgary"
+              alt="Peter Tran"
               className="photo-img"
               loading="lazy"
               decoding="async"
@@ -50,21 +50,21 @@ export default function About() {
           <div className="photo-placeholder">
             <img
               src={family}
-              alt="Peter at DSMLC event"
+              alt="Family"
               className="photo-img"
               loading="lazy"
               decoding="async"
-              style={{ objectPosition: "center 15%" }}
+              style={{ objectPosition: "center 75%" }}
             />
           </div>
           <div className="photo-placeholder">
             <img
               src={bike}
-              alt="Peter with family in San Diego"
+              alt="Motorcycle"
               className="photo-img"
               loading="lazy"
               decoding="async"
-              style={{ objectPosition: "center 10%" }}
+              style={{ objectPosition: "center 50%" }}
             />
           </div>
         </div>

@@ -32,7 +32,7 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     title: 'Tools & Platforms',
-    tags: ['Power BI', 'Databricks', 'Supabase', 'Firebase', 'Figma', 'Django', 'Node.js', 'Docker', 'Git', 'AWS S3'],
+    tags: ['Power BI', 'Databricks', 'Supabase', 'Firebase', 'Figma', 'Django', 'Node.js', 'Docker', 'Git', 'AWS S3', 'MongoDB', 'MySQL', 'PostgreSQL'],
   },
 ]
 
@@ -41,7 +41,7 @@ export const projects: Project[] = [
     href:   'https://csgit.ucalgary.ca/ryan.wong1/seng513-202601-pg-3',
     imgKey: 'campusync',
     imgAlt: 'campusync',
-    tech:   ['Spring Boot', 'Docker', 'SeaweedFS', "React", "TailwindCSS", "PGAdmin" ],
+    tech:   ['Spring Boot', 'Docker', 'SeaweedFS', "React", "TailwindCSS", "PGAdmin", "PostgreSQL" ],
     title:  'CampuSync',
     desc:   'CampuSync is a campus club and event management platform. Students can discover clubs, RSVP to events, and manage personal calendars. ',
     featured: true,
@@ -55,10 +55,18 @@ export const projects: Project[] = [
     desc:    'Data Science and Machine Learning Club dashboarding tool connected to Databricks — creating visual reports of club events and member analytics for leadership decisions.',
   },
   {
+    href:   'https://github.com/aeMyst/ai-chef',
+    imgKey: 'fleurish',
+    imgAlt: 'Fleurish',
+    tech:   ['React', 'MongoDB', 'Express', 'TailwindCSS', 'Arduino', 'Yolov8 ML Model'],
+    title:  'Fleurish',
+    desc:   'Fleurish is a web application that uses affordable camera-based detection and a gamified plant-focused platform to encourage community engagement and sustainable environmental habits.',
+  },
+  {
     href:   'https://github.com/aeMyst/PetPals',
     imgKey: 'petpals',
     imgAlt: 'PetPals',
-    tech:   ['React', 'Firebase', 'Gemini API'],
+    tech:   ['React', 'Firebase', 'Gemini API', 'Flask'],
     title:  'PetPals',
     desc:   '2nd Place Hackathon Winner — anonymous blogging platform built to address inclusivity and community support.',
   },
@@ -66,17 +74,9 @@ export const projects: Project[] = [
     href:   'https://github.com/aeMyst/RevRentals',
     imgKey: 'revrentals',
     imgAlt: 'RevRentals',
-    tech:   ['Flutter', 'Django', 'MySQL'],
+    tech:   ['Flutter', 'Django', 'MySQL', 'SQL'],
     title:  'RevRentals Marketplace',
     desc:   'Mobile app fostering a peer-to-peer marketplace for renting motorcycles — combining a personal passion with technical skill.',
-  },
-  {
-    href:   'https://github.com/aeMyst/ai-chef',
-    imgKey: 'chefai',
-    imgAlt: 'ChefAI',
-    tech:   ['Python', 'Flask', 'OpenAI API'],
-    title:  'ChefAI',
-    desc:   'Recipe generator that provides tailored meal ideas based on expiring fridge ingredients — reducing food waste intelligently.',
   },
 ]
 

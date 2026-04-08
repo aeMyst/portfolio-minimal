@@ -4,14 +4,14 @@ import { projects } from "../data/Content";
 import imgDashboard from "../assets/projects/dsmlcdashboard.png";
 import imgPetpals from "../assets/projects/petpals.png";
 import imgRevrentals from "../assets/projects/revrentals.png";
-import imgChefai from "../assets/projects/chefai.png";
 import imgcampusync from "../assets/projects/campusync.png";
+import imgfleurish from "../assets/projects/fleurish.png";
 
 const PROJECT_IMAGES: Record<string, string> = {
   dashboard: imgDashboard,
   petpals: imgPetpals,
   revrentals: imgRevrentals,
-  chefai: imgChefai,
+  fleurish: imgfleurish,
   campusync: imgcampusync,
 };
 

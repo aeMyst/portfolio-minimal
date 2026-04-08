@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useTheme } from "../context/ThemeContext";
+import resume from "../assets/resume/PeterTran_Resume.pdf";
 
 function IconLeaf() {
   return (
@@ -99,12 +100,7 @@ export default function Nav() {
           </span>
         </button>
 
-        <a
-          href="https://petertran-portfolio.com/PeterTran_Resume.pdf"
-          target="_blank"
-          rel="noreferrer"
-          className="nav-cta"
-        >
+        <a href={resume} target="_blank" rel="noreferrer" className="nav-cta">
           Resume
         </a>
       </div>

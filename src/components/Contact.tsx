@@ -1,3 +1,5 @@
+import resume from "../assets/resume/PeterTran_Resume.pdf";
+
 export default function Contact() {
   return (
     <div className="contact-inner">
@@ -11,11 +13,11 @@ export default function Contact() {
         Open to internships, collaborations, and interesting conversations.
       </p>
       <div className="contact-actions reveal">
-        <a href="mailto:your@email.com" className="btn-primary">
+        <a href="mailto:panpetertran123@gmail.com" className="btn-primary">
           Get In Touch
         </a>
         <a
-          href="https://petertran-portfolio.com/PeterTran_Resume.pdf"
+          href={resume}
           target="_blank"
           rel="noreferrer"
           className="btn-secondary"

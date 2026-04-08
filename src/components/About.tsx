@@ -7,9 +7,9 @@ export default function About() {
     <div className="container section-pad">
       <p className="section-label reveal">About</p>
       <h2 className="section-title reveal">
-        Turning data into
+        Turning ideas into
         <br />
-        <em>decisions that matter</em>
+        <em>polished products</em>
       </h2>
 
       <div className="about-grid">

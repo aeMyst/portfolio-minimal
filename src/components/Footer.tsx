@@ -9,11 +9,18 @@ export default function Footer() {
           GitHub
         </a>
         <a
-          href="https://linkedin.com/in/petertran"
+          href="https://www.linkedin.com/in/peter-tran-portal/"
           target="_blank"
           rel="noreferrer"
         >
           LinkedIn
+        </a>
+        <a
+          href="https://www.instagram.com/peterthetran/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Instagram
         </a>
         <a href="mailto:your@email.com">Email</a>
       </div>

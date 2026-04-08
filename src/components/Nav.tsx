@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { gsap } from "gsap";
 import { useTheme } from "../context/ThemeContext";
 
 export default function Nav() {
@@ -14,16 +13,8 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    gsap.to(".nav-logo, .nav-links, .nav-cta, .theme-toggle", {
-      opacity: 1,
-      y: 0,
-      duration: 0.6,
-      ease: "power2.out",
-      stagger: 0.1,
-      delay: 0.3,
-    });
-  }, []);
+  // Nav entrance animation is handled by Hero.tsx timeline
+  // to match the original HTML where nav animates in with the hero
 
   return (
     <nav id="mainNav" className={scrolled ? "scrolled" : ""}>
@@ -54,12 +45,12 @@ export default function Nav() {
           className="theme-toggle"
           onClick={toggleTheme}
           title={`Switch to ${theme === "emerald" ? "Ice Blue" : "Emerald"} theme`}
-          aria-label="Toggle color theme"
+          aria-label={`Switch to ${theme === "emerald" ? "Ice Blue" : "Emerald"} theme`}
         >
           <span className="theme-toggle-track">
             <span className="theme-toggle-thumb" />
           </span>
-          <span className="theme-toggle-label">
+          <span className="theme-toggle-icon">
             {theme === "emerald" ? "🍀" : "💎"}
           </span>
         </button>

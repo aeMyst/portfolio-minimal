@@ -118,6 +118,8 @@ export const experienceItems: ExperienceItem[] = [
 
 export const courses = [
   'Database Management Systems',
+  'Scalable Data Analytics',
+  'Web-Based Systems',
   'Human Computer Interactions',
   'Machine Learning & AI',
   'Web Development Essentials',

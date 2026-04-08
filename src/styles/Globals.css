@@ -1,4 +1,4 @@
-/* ── FONTS ───────────────────────────── */
+/* ── FONTS (theme-independent) ───────────────────────────── */
 :root {
   --font-display: 'Syne', sans-serif;
   --font-serif:   'DM Serif Display', serif;
@@ -32,8 +32,8 @@
 }
 
 /* ── SMOOTH TRANSITION ON THEME SWAP ────────────────────── */
-body, nav, section, footer, .skill-group, .project-card,
-.edu-card, .timeline-item, .contact-inner {
+body, nav, section, footer, .project-card,
+.timeline-item, .contact-inner {
   transition:
     background-color 0.5s ease,
     border-color     0.4s ease,
@@ -141,7 +141,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  transition: background 0.4s, backdrop-filter 0.4s;
+  transition: background 0.4s, backdrop-filter 0.4s, border-color 0.4s;
 }
 
 nav.scrolled {
@@ -157,18 +157,16 @@ nav.scrolled {
   letter-spacing: 0.04em;
   color: var(--cream);
   text-decoration: none;
-  opacity: 0;
 }
 
 .nav-links {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 2.5rem;
+  gap: 1.75rem;
   list-style: none;
   margin: 0;
   padding: 0;
-  opacity: 0;
 }
 
 .nav-links li {
@@ -204,7 +202,6 @@ nav.scrolled {
   padding: 0.55rem 1.25rem;
   border-radius: 4px;
   transition: background 0.3s, border-color 0.3s;
-  opacity: 0;
 }
 
 .nav-cta:hover {
@@ -221,6 +218,26 @@ nav.scrolled {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+}
+
+/* Gradient fade at the bottom of the hero that dissolves into
+   the About section's --navy background, removing the hard cut */
+#hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 280px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(var(--navy-rgb), 0.5) 40%,
+    rgba(var(--navy-rgb), 0.85) 65%,
+    var(--navy) 100%
+  );
+  z-index: 5;
+  pointer-events: none;
 }
 
 #webGLApp {
@@ -248,7 +265,6 @@ nav.scrolled {
   text-transform: uppercase;
   color: var(--accent);
   margin-bottom: 1.5rem;
-  opacity: 0;
 }
 
 .hero-name {
@@ -258,7 +274,6 @@ nav.scrolled {
   line-height: 0.92;
   color: white;
   margin-bottom: 0.2em;
-  opacity: 0;
 }
 
 .hero-name em {
@@ -273,7 +288,6 @@ nav.scrolled {
   letter-spacing: 0.06em;
   color: var(--text-muted);
   margin-top: 1.8rem;
-  opacity: 0;
 }
 
 .hero-scroll {
@@ -286,7 +300,6 @@ nav.scrolled {
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  opacity: 0;
 }
 
 .hero-scroll span {
@@ -325,7 +338,6 @@ nav.scrolled {
   border: none;
   cursor: pointer;
   padding: 0;
-  opacity: 0;
 }
 
 .theme-toggle-track {
@@ -489,12 +501,13 @@ section {
   border: 1px solid rgba(var(--cream-rgb), 0.07);
   border-radius: 8px;
   background: rgba(var(--cream-rgb), 0.02);
-  transition: border-color 0.3s, background 0.3s;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .skill-group:hover {
-  border-color: rgba(var(--accent-rgb), 0.25);
-  background: rgba(var(--accent-rgb), 0.03);
+  border-color: rgba(var(--accent-rgb), 0.35);
+  transform: scale(1.02);
+  box-shadow: 0 0 8px rgba(var(--accent-rgb), 0.25)
 }
 
 .skill-group-title {
@@ -521,12 +534,13 @@ section {
   padding: 0.35rem 0.85rem;
   border: 1px solid rgba(var(--cream-rgb), 0.12);
   border-radius: 3px;
-  transition: color 0.2s, border-color 0.2s;
+  transition: color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .skill-tag:hover {
   color: var(--cream);
-  border-color: rgba(var(--cream-rgb), 0.3);
+  border-color: rgba(var(--accent-rgb), 0.6);
+  box-shadow: 0 0 8px rgba(var(--accent-rgb), 0.25);
 }
 
 /* ── PROJECTS ────────────────────────────────────────────── */
@@ -771,7 +785,7 @@ section {
   border-radius: 8px;
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 2.5rem;
+  gap: 1.75rem;
   align-items: center;
 }
 
@@ -840,6 +854,13 @@ section {
   border: 1px solid rgba(var(--cream-rgb), 0.1);
   border-radius: 3px;
   font-family: var(--font-body);
+  transition: color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.course-tag:hover {
+  color: var(--cream);
+  border-color: rgba(var(--accent-rgb), 0.6);
+  box-shadow: 0 0 8px rgba(var(--accent-rgb), 0.25);
 }
 
 /* ── CONTACT ─────────────────────────────────────────────── */
@@ -972,6 +993,11 @@ footer {
   color: var(--accent);
 }
 
+/* ── SCROLL REVEAL BASE ──────────────────────────────────── */
+/* GSAP's fromTo() sets opacity:0 / y:40 as the initial state.      */
+/* CSS does NOT set opacity:0 here — that caused elements to be      */
+/* permanently hidden if GSAP failed to find/animate them.           */
+/* will-change hints the browser to composite these elements.        */
 .reveal {
   will-change: opacity, transform;
 }
@@ -981,7 +1007,7 @@ footer {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
-  align-items: start;
+  align-items: stretch;
   margin-top: 3.5rem;
 }
 
@@ -995,26 +1021,40 @@ footer {
   margin-bottom: 1.75rem;
 }
 
+.skills-edu-left {
+  display: flex;
+  flex-direction: column;
+}
+
 .skills-stack {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
+  flex: 1;
 }
 
-/* Education card inside the combined section */
+.skills-edu-right {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Education card */
 .edu-card-inline {
-  border: 1px solid rgba(var(--cream-rgb), 0.08);
+  border: 1px solid rgba(var(--cream-rgb), 0.07);
   border-radius: 8px;
   padding: 2rem;
   background: rgba(var(--cream-rgb), 0.02);
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  transition: border-color 0.3s;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  flex: 1;
 }
 
 .edu-card-inline:hover {
-  border-color: rgba(var(--accent-rgb), 0.2);
+  border-color: rgba(var(--accent-rgb), 0.35);
+  transform: scale(1.02);
+  box-shadow: 0 0 8px rgba(var(--accent-rgb), 0.25)
 }
 
 .edu-info {

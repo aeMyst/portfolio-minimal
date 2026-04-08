@@ -9,6 +9,13 @@ export default function Hero() {
   useThreeScene(canvasRef, theme);
 
   useEffect(() => {
+    gsap.set(".hero-eyebrow", { opacity: 0, y: 20 });
+    gsap.set(".hero-name", { opacity: 0, y: 30 });
+    gsap.set(".hero-tagline", { opacity: 0, y: 20 });
+    gsap.set(".hero-scroll", { opacity: 0 });
+    gsap.set(".nav-logo, .nav-links, .nav-right", { opacity: 0, y: -10 });
+
+    // Hero entrance timeline
     gsap
       .timeline({ delay: 0.3 })
       .to(
@@ -30,6 +37,17 @@ export default function Hero() {
         ".hero-scroll",
         { opacity: 1, duration: 0.6, ease: "power2.out" },
         0.9,
+      )
+      .to(
+        ".nav-logo, .nav-links, .nav-right",
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: "power2.out",
+          stagger: 0.1,
+        },
+        0.3,
       );
   }, []);
 
@@ -38,7 +56,7 @@ export default function Hero() {
       <canvas id="webGLApp" ref={canvasRef} />
 
       <div className="hero-content">
-        <p className="hero-eyebrow">Data Professional &amp; Junior Developer</p>
+        <p className="hero-eyebrow">Junior Data Analyst &amp; Developer</p>
         <h1 className="hero-name">
           Peter
           <br />

@@ -38,7 +38,7 @@ export const skillGroups: SkillGroup[] = [
 
 export const projects: Project[] = [
   {
-    href:   'https://csgit.ucalgary.ca/ryan.wong1/seng513-202601-pg-3',
+    href:   'https://github.com/aeMyst/CampuSync',
     imgKey: 'campusync',
     imgAlt: 'campusync',
     tech:   ['Spring Boot', 'Docker', 'SeaweedFS', "React", "TailwindCSS", "PGAdmin", "PostgreSQL" ],

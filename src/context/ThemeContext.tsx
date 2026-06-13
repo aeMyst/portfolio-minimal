@@ -21,10 +21,6 @@ const ThemeContext = createContext<ThemeContextValue>({
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<Theme>("ice");
 
-  // Apply data-theme attribute to <html> whenever theme changes.
-  // All CSS variables are scoped to [data-theme] so the entire page
-  // responds automatically — no component needs to know about the theme
-  // unless it has non-CSS logic to run (e.g. the WebGL scene).
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);

@@ -83,14 +83,13 @@ export const projects: Project[] = [
 export const experienceItems: ExperienceItem[] = [
   {
     date:     'May 2026 — Present',
-    role:     'Data Analyst Intern',
+    role:     'Enterprise AI Analytics',
     company:  'Enbridge',
-    desc:     "Incoming data analyst role — leveraging analytical skills to support data-driven decision-making at one of North America's leading energy infrastructure companies.",
-    upcoming: true,
+    desc:     "Developed AI-powered analytics solutions and intelligent agents. Responsible for governance platform maintenance, continuous improvements, and business AI enablement initiatives.",
   },
   {
     date:    'May 2025 — Present',
-    role:    'Co-Director of Operations',
+    role:    'Director of Operations',
     company: 'Data Science & Machine Learning Club · University of Calgary',
     desc:    'Led sprint discussions and team coordination. Responsible for website maintenance and continuous improvements. Developed internal systems and tooling for club events and member management.',
   },

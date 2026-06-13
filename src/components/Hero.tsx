@@ -81,7 +81,7 @@ export default function Hero() {
         <p className="hero-tagline">
           Computer Science · University of Calgary
           <br />
-          Incoming Data Analyst Intern @ Enbridge
+          Data & AI Analytics @ Enbridge
         </p>
 
         <div className="hero-socials">

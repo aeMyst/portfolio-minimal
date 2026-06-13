@@ -17,22 +17,22 @@ export default function About() {
           <p className="about-para">
             I'm a passionate <strong>Computer Science student</strong> at the
             University of Calgary with aspirations to become a professional Data
-            Analyst and Web Developer. I love bringing ideas to life — there's
+            Analyst and Developer. I love bringing ideas to life; there's
             nothing more rewarding than turning a concept into a polished,
             useful final product.
           </p>
           <p className="about-para">
-            As <strong>Co-Director of Operations</strong> for the Data Science
-            and Machine Learning Club, I design and manage tools that keep
-            operations running smoothly. As a Prospective Student Engagement
-            Ambassador, I help welcome new students and support department
-            events.
+            As an <strong>AI Analytics CO-OP Student</strong> at Enbridge, I
+            develop AI-powered analytics solutions and intelligent agents to
+            support business decision-making. I also maintain governance
+            platforms and collaborate with stakeholders to enable the
+            responsible adoption of AI technologies across the organization.
           </p>
           <p className="about-para">
             Outside of work, I'm an avid <strong>motorcyclist</strong>, a
-            traveler who's visited Mexico, the US, and counting — with Singapore
-            and China next on the list — and a gamer who believes technology has
-            the power to bring communities together.
+            traveler who's visited Mexico, the US, and counting with Singapore
+            and China next on the list as well as a gamer who believes
+            technology has the power to bring communities together.
           </p>
         </div>
 

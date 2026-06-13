@@ -8,7 +8,7 @@ export default function Contact() {
         <em>connect.</em>
       </h2>
       <p className="contact-sub reveal">
-        Open to internships, collaborations, and interesting conversations.
+        Open to connecting, collaborations, and interesting conversations.
       </p>
       <div className="contact-actions reveal">
         <a href="mailto:panpetertran123@gmail.com" className="btn-primary">
